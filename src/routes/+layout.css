@@ -1,0 +1,93 @@
+@import "m3-svelte/etc/styles.css";
+@import "m3-svelte/etc/recommended-styles.css";
+@import "@fontsource-variable/google-sans-flex/opsz.css";
+@function --m3-density(--size) {
+	result: var(--size);
+}
+
+:root {
+	color-scheme: light dark;
+}
+
+@layer tokens {
+	:root {
+		--m3c-surface: light-dark(#fff8f8, #120d0f);
+		--m3c-surface-container-lowest: light-dark(#fff, #000);
+		--m3c-surface-container-low: light-dark(#fff0f5, #181115);
+		--m3c-surface-container: light-dark(#faeaef, #20171b);
+		--m3c-surface-container-high: light-dark(#f5e4ea, #261d21);
+		--m3c-surface-container-highest: light-dark(#f1dde5, #2e2328);
+		--m3c-on-surface: light-dark(#3b2f35, #f4e0e8);
+		--m3c-on-surface-variant: light-dark(#695b61, #b8a7ad);
+		--m3c-outline: light-dark(#86777d, #817178);
+		--m3c-outline-variant: light-dark(#bfadb4, #51444a);
+		--m3c-inverse-surface: light-dark(#120d0f, #fff8f8);
+		--m3c-inverse-on-surface: light-dark(#a59a9e, #5b5356);
+		--m3c-primary: light-dark(#834e6c, #edb7d2);
+		--m3c-on-primary: light-dark(#fff7f8, #5b344a);
+		--m3c-primary-container: light-dark(#febbde, #6f465c);
+		--m3c-on-primary-container: light-dark(#663552, #ffd9ea);
+		--m3c-inverse-primary: light-dark(#febbde, #7d5269);
+		--m3c-secondary: light-dark(#725865, #dfbecd);
+		--m3c-on-secondary: light-dark(#fff7f8, #513946);
+		--m3c-secondary-container: light-dark(#fcd9e9, #4c3541);
+		--m3c-on-secondary-container: light-dark(#644b57, #d7b6c5);
+		--m3c-tertiary: light-dark(#6f557d, #f7e1ff);
+		--m3c-on-tertiary: light-dark(#fff6fd, #644c73);
+		--m3c-tertiary-container: #efcffe;
+		--m3c-on-tertiary-container: #5b436a;
+		--m3c-error: light-dark(#a8364b, #f97386);
+		--m3c-on-error: light-dark(#fff7f7, #490013);
+		--m3c-error-container: light-dark(#f97386, #871c34);
+		--m3c-on-error-container: light-dark(#6e0523, #ff97a3);
+		--m3c-shadow: #000;
+		--m3c-scrim: #000;
+		--m3c-on-on-primary: light-dark(#834e6c, #edb7d2);
+		--m3c-primary-container-subtle: light-dark(#ffcce5, #442035);
+		--m3c-on-primary-container-subtle: light-dark(#6e3c59, #d09cb6);
+		--m3c-secondary-container-subtle: light-dark(#f3d1e0, #3b2631);
+		--m3c-on-secondary-container-subtle: light-dark(#5e4652, #c2a3b1);
+		--m3c-tertiary-container-subtle: light-dark(#efcffe, #392347);
+		--m3c-on-tertiary-container-subtle: light-dark(#5b436a, #bea1cd);
+		--m3c-error-container-subtle: light-dark(#ffced2, #5f001c);
+		--m3c-on-error-container-subtle: light-dark(#8f2339, #ff8796);
+	}
+}
+
+* {
+	box-sizing: border-box;
+	font-family: "Google Sans Flex Variable", var(--m3-font);
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	
+	margin: 0px;
+}
+
+h1 {
+	margin: 0px;
+	font-variation-settings: "SOFT" 100;
+}
+
+.container {
+	background-color: var(--m3c-primary-container);
+	border-radius: var(--m3-shape-large-increased);
+	padding: .75rem;
+	
+	width: max-content;
+	height: max-content;
+}
+
+.body {
+	display: flex;
+	flex-direction: row;
+	
+	width: 100vw;
+	height: 100vh;
+}
+
+.pageBody {
+	padding: 25px;
+}
