@@ -2,7 +2,7 @@
 	let { children, size } = $props();
 </script>
 
-<div class={["tagsGroup", (size != undefined ? size : "")].join(" ")}>
+<div class={["tagsGroup draggable", (size != undefined ? size : "")].join(" ")} role="region">
 	{@render children()}
 </div>
 
@@ -12,6 +12,9 @@
 		flex-direction: row;
 		
 		gap: 5px;
+		
+		overflow-x: scroll;
+		z-index: 2;
 	}
 	
 	:global .tagsGroup.small {

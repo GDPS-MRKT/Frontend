@@ -11,8 +11,10 @@
 	import iconHistory from "@ktibow/iconset-material-symbols/history-rounded";
 </script>
 
-<div class="m3-layer container gdps" onclick={() => goto("/gdps/1730127398")}>
-	<img class="banner" src="https://images.gcs.skin/gcs/banner.png" alt="GDPS banner" />
+<div class="m3-layer container gdps">
+	<div class="bannerDiv">
+		<img class="banner" src="https://images.gcs.skin/gcs/banner.png" alt="GDPS banner" />
+	</div>
 	
 	<div class="gdpsDesc">
 		<div class="gdpsTitle">
@@ -21,13 +23,13 @@
 			</span>
 			
 			<div class="gdpsName">
-				<span class="filler"><h1>Empty....</h1></span>
-				<h1>GDPSNameGDPS</h1>
+				<h1>GreenCatsServer</h1>
+				<h3 on:click={() => goto("/user/Sa1ntSosetHui")}>Sa1ntSosetHui</h3>
 			</div>
 		</div>
 		
 		<TagsGroup size="small">
-			<Tag icon={iconPerson} label="Sa1ntSosetHui" />
+			<Tag icon={iconStar} color="gold" label="Recommended" />
 			<Tag label="2.2" />
 			<Tag label="GCS" />
 			<Tag label="Femboys" />
@@ -60,7 +62,7 @@
 	}
 	
 	h1 {
-		font-size: 1.5rem;
+		font-size: 1.2rem;
 		color: var(--m3c-on-primary-container);
 	}
 	
@@ -81,37 +83,70 @@
 		margin: 0px;
 	}
 	
+	h3 {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		
+		font-weight: 400;
+		font-size: 14px;
+		margin: 0px;
+		
+		color: var(--m3c-on-secondary-container);
+		
+		z-index: 2;
+	}
+	
 	:global h2 > svg {
 		max-height: 26px;
 		max-width: 26px;
 	}
 	
-	.banner {
+	.bannerDiv {
+		display: flex;
+		
 		max-width: 100%;
-		aspect-ratio: 21/6;
+		aspect-ratio: 19/6;
 		object-fit: cover;
 		
 		border-radius: var(--m3-shape-small);
+		
+		position: relative;
+		z-index: 0;
+	}
+	
+	.banner {
+		max-width: 100%;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		
+		border-radius: var(--m3-shape-small);
+		border-top-left-radius: var(--m3-shape-large);
+		border-top-right-radius: var(--m3-shape-large);
 		
 		z-index: 1;
 	}
 	
 	.gdpsTitle {
 		display: flex;
-		align-items: center;
+		align-items: flex-end;
 		
 		max-width: stretch;
 		width: 100%;
 		
 		margin-left: -4.5px;
 		margin-bottom: -5px;
-		margin-top: -50px;
+		margin-top: -60px;
+		
+		padding-top: 10px;
+		overflow-x: hidden;
 	}
 	
 	.logo {
 		position: relative;
-		width: 90px;
-		height: 90px;
+		width: 100px;
+		height: 100px;
 		
 		aspect-ratio: 1/1;
 		object-fit: cover;
@@ -125,7 +160,7 @@
 		aspect-ratio: 1/1;
 		object-fit: cover;
 		
-		width: 80px;
+		width: 100%;
 		border-radius: var(--m3-shape-medium);
 		background: var(--m3c-on-secondary-container);
 	}
@@ -154,7 +189,7 @@
 	
 	.logo:after {
 		right: 0px;
-		transform: translate(calc(var(--border-padding) * 3 + 0.5px), -52px);
+		transform: translate(calc(var(--border-padding) * 3 + 0.5px), -58px);
 	}
 	
 	.filler {
@@ -166,7 +201,6 @@
 	.gdpsName {
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
 		padding: 0.2rem;
 	}
 	
