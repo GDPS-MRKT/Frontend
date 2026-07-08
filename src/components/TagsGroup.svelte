@@ -14,7 +14,6 @@
 		gap: 5px;
 		
 		overflow-x: scroll;
-		z-index: 2;
 	}
 	
 	:global .tagsGroup.small {

@@ -1,2 +1,2 @@
 @echo off
-pnpm run dev
+bun run dev

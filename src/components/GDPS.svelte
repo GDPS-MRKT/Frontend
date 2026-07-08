@@ -1,6 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
-	import { Icon, Button, Chip } from "m3-svelte";
+	import { Icon, Button } from "m3-svelte";
 	import TagsGroup from "./TagsGroup.svelte";
 	import Tag from "./Tag.svelte";
 	
