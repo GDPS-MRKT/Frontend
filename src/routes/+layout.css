@@ -140,6 +140,9 @@ h1, p {
 }
 
 .pageBody {
+	display: flex;
+	justify-content: center;
+	
 	padding: 50px;
 	
 	width: 100vw;

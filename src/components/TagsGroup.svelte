@@ -2,7 +2,7 @@
 	let { children, size } = $props();
 </script>
 
-<div class={["tagsGroup draggable", (size != undefined ? size : "")].join(" ")} role="region">
+<div class={["tagsGroup", (size != undefined ? size : "")].join(" ")} role="region">
 	{@render children()}
 </div>
 
@@ -18,5 +18,10 @@
 	
 	:global .tagsGroup.small {
 		gap: 3px;
+	}
+
+	.tagsGroup::-webkit-scrollbar {
+		width: 0px;
+		height: 0px;
 	}
 </style>

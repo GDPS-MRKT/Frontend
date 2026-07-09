@@ -1,10 +1,10 @@
 <script>
 	import { Icon } from "m3-svelte";
 	
-	let { icon, label, color } = $props();
+	let { icon, label, color, title } = $props();
 </script>
 
-<h2 class={["tag", (color != undefined ? color : "")].join(" ")} title=":123">
+<h2 class={["tag", (color != undefined ? color : "")].join(" ")} title={title != undefined ? title : ""}>
 	{#if icon != undefined}
 		<Icon icon={icon} />
 	{/if}
@@ -21,8 +21,8 @@
 		font-size: 24px;
 		font-weight: 400;
 		
-		background: var(--m3c-secondary-container);
-		color: var(--m3c-on-secondary-container);
+		background: light-dark(var(--m3c-tertiary-container), var(--m3c-secondary-container));
+		color: light-dark(var(--m3c-on-tertiary-container), var(--m3c-on-secondary-container));
 		padding: .5rem;
 		
 		border-radius: var(--m3-shape-small);

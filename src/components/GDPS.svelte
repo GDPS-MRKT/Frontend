@@ -24,7 +24,7 @@
 			
 			<div class="gdpsName">
 				<h1>GreenCatsServer</h1>
-				<h3 on:click={() => goto("/user/Sa1ntSosetHui")}>Sa1ntSosetHui</h3>
+				<h3 on:click={() => goto("/profile/Sa1ntSosetHui")}>Sa1ntSosetHui</h3>
 			</div>
 		</div>
 		
