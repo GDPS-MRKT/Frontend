@@ -3,7 +3,7 @@
 	import { Icon, Button } from "m3-svelte";
 </script>
 
-<div class="m3-layer gdps">
+<div class="m3-layer gdps" on:click={() => goto("/gdps/GreenCatsServer")}>
 	<div class="gdpsTitle">
 		<span class="logo">
 			<img src="https://images.gcs.skin/gcs/logo.png" alt="GDPS logo" />
@@ -36,12 +36,19 @@
 		border-bottom-right-radius: var(--m3-shape-large-increased);
 	}
 	
-	h1 {
+	.gdpsTitle {
+		display: flex;
+		align-items: center;
+		
+		gap: 7px;
+	}
+	
+	.gdpsTitle h1 {
 		font-size: 1.2rem;
 		color: var(--m3c-on-primary-container);
 	}
 	
-	h3 {
+	.gdpsTitle h3 {
 		font-weight: 400;
 		font-size: 14px;
 		margin: 0px;
@@ -49,19 +56,12 @@
 		color: var(--m3c-on-secondary-container);
 	}
 	
-	.logo {
+	.gdpsTitle .logo {
 		height: 40px;
 	}
 	
-	.logo img {
+	.gdpsTitle .logo img {
 		height: 40px;
 		border-radius: var(--m3-shape-small);
-	}
-	
-	.gdpsTitle {
-		display: flex;
-		align-items: center;
-		
-		gap: 7px;
 	}
 </style>

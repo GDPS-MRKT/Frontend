@@ -11,7 +11,7 @@
 	import iconHistory from "@ktibow/iconset-material-symbols/history-rounded";
 </script>
 
-<div class="m3-layer container gdps">
+<div class="m3-layer container gdps" on:click={() => goto("/gdps/GreenCatsServer")}>
 	<div class="bannerDiv">
 		<img class="banner" src="https://images.gcs.skin/gcs/banner.png" alt="GDPS banner" />
 	</div>

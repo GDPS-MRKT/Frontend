@@ -1,5 +1,6 @@
 <script>
 	import { Icon, Button, LoadingIndicator } from "m3-svelte";
+	import Header from "../../../components/Header.svelte";
 	import GDPSSmall from "../../../components/GDPSSmall.svelte";
 	import TagsGroup from "../../../components/TagsGroup.svelte";
 	import Tag from "../../../components/Tag.svelte";
@@ -12,6 +13,7 @@
 	import iconBluesky from "../../../lib/assets/logo_bs.svelte";
 	import iconInstagram from "../../../lib/assets/logo_ig.svelte";
 	import iconTikTok from "../../../lib/assets/logo_tt.svelte";
+	import iconDiscord from "../../../lib/assets/logo_ds.svelte";
 	import iconTelegram from "../../../lib/assets/logo_tg.svelte";
 	import iconLink from "@ktibow/iconset-material-symbols/link-rounded";
 	import iconSchedule from "@ktibow/iconset-material-symbols/schedule-rounded";
@@ -31,6 +33,8 @@
 	profilePosts.push(undefined);
 	profilePosts.push(132);
 </script>
+
+<Header title="Sa1ntSosetHui's profile" />
 
 <div class="profileWrapper">
 	<div class="profileUser">
@@ -67,6 +71,9 @@
 				</Button>
 				<Button target="_blank" rel="noopener" href="https://gcs.skin" title="GitHub">
 					<svelte:component this={iconTikTok} /> TikTok
+				</Button>
+				<Button target="_blank" rel="noopener" href="https://gcs.skin" title="YouTube">
+					<svelte:component this={iconDiscord} /> Discord
 				</Button>
 				<Button target="_blank" rel="noopener" href="https://gcs.skin" title="GitHub">
 					<svelte:component this={iconTelegram} /> Telegram

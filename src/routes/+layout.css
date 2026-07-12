@@ -1,6 +1,7 @@
 @import "m3-svelte/etc/styles.css";
 @import "m3-svelte/etc/recommended-styles.css";
 @import "@fontsource-variable/google-sans-flex/opsz.css";
+@import "@fontsource-variable/google-sans-code";
 @function --m3-density(--size) {
 	result: var(--size);
 }

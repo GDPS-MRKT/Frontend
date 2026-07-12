@@ -19,5 +19,9 @@
 		"svelte": "^5.55.2",
 		"vite": "^8.0.7",
 		"vite-plugin-functions-mixins": "^0.4.1"
+	},
+	"dependencies": {
+		"@fontsource-variable/google-sans-code": "^5.2.4",
+		"@humanspeak/svelte-markdown": "^1.7.10"
 	}
 }

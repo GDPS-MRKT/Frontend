@@ -1,5 +1,6 @@
 <script>
 	import { Icon, Button, LoadingIndicator } from "m3-svelte";
+	import Header from "../../components/Header.svelte";
 	import GDPS from "../../components/GDPS.svelte";
 	import SearchInput from "../../components/SearchInput.svelte";
 	
@@ -45,6 +46,8 @@
 		console.log(value);
 	}
 </script>
+
+<Header title="Search GDPSs" />
 
 <div class="searchDiv">
 	<div class="searchInputDiv">

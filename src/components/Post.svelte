@@ -26,7 +26,7 @@
 			
 			<TagsGroup size="small">
 				{#if gdpsID != undefined}
-					<Tag label="For GreenCatsServer" />
+					<Tag label="For GreenCatsServer" onClick={() => goto("/gdps/Sa1ntSosetHui")} />
 				{/if}
 				<Tag label="2 weeks ago" />
 			</TagsGroup>
@@ -37,7 +37,11 @@
 	
 	<div class="postButtons">
 		<TagsGroup>
-			<Tag icon={iconFavorite} label="10" />
+			{#if gdpsID != undefined}
+				<Tag icon={iconFavorite} label="10" color="primary" onClick={() => console.log(123)} />
+			{:else}
+				<Tag icon={iconFavorite} label="10" />
+			{/if}
 			<Tag icon={iconComment} label="2" />
 		</TagsGroup>
 		
@@ -56,7 +60,7 @@
 		
 		width: 100%;
 		padding: 1rem;
-		border-radius: var(--m3-shape-small);
+		border-radius: var(--m3-shape-large);
 		
 		gap: 10px;
 	}
@@ -74,6 +78,8 @@
 	h1 {
 		font-size: 1.4rem;
 		color: var(--m3c-on-primary-container);
+		
+		cursor: pointer;
 	}
 	
 	h3 {
