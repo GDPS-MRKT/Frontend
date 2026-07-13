@@ -118,7 +118,7 @@
 	.profileWrapper {
 		display: flex;
 		
-		width: 80%;
+		width: 65rem;
 		height: max-content;
 		
 		gap: 10px;
@@ -141,6 +141,7 @@
 	.profileUser {
 		display: flex;
 		flex-direction: column;
+		align-self: flex-end;
 		
 		width: 80%;
 		height: max-content;
@@ -148,7 +149,7 @@
 		gap: 5px;
 		
 		position: sticky;
-		top: -30px;
+		bottom: -30px;
 	}
 	
 	.profileInfo:nth-of-type(1) {

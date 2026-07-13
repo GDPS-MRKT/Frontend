@@ -7,6 +7,9 @@
 	import Tag from "../../../components/Tag.svelte";
 	import Post from "../../../components/Post.svelte";
 	import Input from "../../../components/Input.svelte";
+	import MenuGroup from "../../../components/MenuGroup.svelte";
+	import MenuItems from "../../../components/MenuItems.svelte";
+	import Menu from "../../../components/Menu.svelte";
 	
 	import iconVisibility from "@ktibow/iconset-material-symbols/visibility-rounded";
 	import iconThumbUp from "@ktibow/iconset-material-symbols/thumb-up-rounded";
@@ -21,6 +24,9 @@
 	import iconIos from "@ktibow/iconset-material-symbols/ios";
 	import iconDiscord from "../../../lib/assets/logo_ds.svelte";
 	import iconTelegram from "../../../lib/assets/logo_tg.svelte";
+	import iconLink from "@ktibow/iconset-material-symbols/link-rounded";
+	import iconMoreHoriz from "@ktibow/iconset-material-symbols/more-horiz";
+	import iconFlag from "@ktibow/iconset-material-symbols/flag-rounded";
 	
 	let { params } = $props();
 	
@@ -40,7 +46,7 @@
 
 ## ОБЯЗАТЕЛЬНЫЙ К ПРОЧТЕНИЮ РАССКАЗ
 
-Костя сидел на лавочке в парке, уставившись в телефон. Он уже час ждал Пшпа, который опаздывал. Наконец, вдали показалась знакомая фигура. Пшп бежал, тяжело дыша, с пакетом из магазина.
+[Костя](https://socials.gcs.skin) сидел на лавочке в парке, уставившись в телефон. Он уже час ждал Пшпа, который опаздывал. Наконец, вдали показалась знакомая фигура. Пшп бежал, тяжело дыша, с пакетом из магазина.
 
 \"Прости, застрял в пробке, – выдохнул Пшп, садясь рядом с Костей. – Я тебе мороженое купил, твое любимое, клубничное\".
 
@@ -96,7 +102,7 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 	
 	<div class="gdpsPage">
 		<div class="gdpsInfo short">
-			<div class="gdpsCard">
+			<div class="gdpsCard containsMenu">
 				<div class="gdpsTitle">
 					<span class="logo">
 						<img src="https://images.gcs.skin/gcs/logo.png" alt="GDPS logo" />
@@ -114,6 +120,13 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 							<Tag label="Furi" />
 						</TagsGroup>
 					</div>
+		
+					<MenuGroup icon={iconMoreHoriz}>
+						<MenuItems>
+							<Menu onClick={() => {}} icon={iconLink} label="Copy link" />
+							<Menu onClick={() => {}} icon={iconFlag} label="Report" />
+						</MenuItems>
+					</MenuGroup>
 				</div>
 				
 				<div class="gdpsStats">
@@ -156,7 +169,7 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 						<svelte:component this={iconTelegram} /> Telegram
 					</Button>
 					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="YouTube">
-						<Icon icon={iconDesktopMac} /> Tools
+						<Icon icon={iconLink} /> Website
 					</Button>
 				</TagsGroup>
 			</div>
@@ -196,7 +209,7 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 		display: flex;
 		flex-direction: column;
 		
-		width: 90%;
+		width: 75rem;
 		height: max-content;
 		
 		gap: 10px;
@@ -247,8 +260,8 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 		width: 70%;
 		
 		position: sticky;
-		top: -30px;
-		height: 100%;
+		bottom: -30px;
+		align-self: flex-end;
 	}
 	
 	.gdpsCard {
@@ -268,6 +281,8 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 	
 	.gdpsCard.gdpsDescription {
 		border-radius: var(--m3-shape-extra-large);
+		color: var(--m3c-on-secondary-container);
+		
 		gap: 5px;
 	}
 	
@@ -301,8 +316,13 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 		margin-top: -5px;
 		
 		color: var(--m3c-on-secondary-container);
+		transition: color var(--m3-easing-fast);
 		
 		cursor: pointer;
+	}
+	
+	.gdpsTitle h3:hover {
+		color: var(--m3c-on-primary-container);
 	}
 	
 	.gdpsName {
@@ -472,6 +492,58 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 		margin: 0px;
 		color: var(--m3c-on-secondary-container);
 		padding-left: 2.5rem;
+	}
+	
+	:global .gdpsDescription table,
+	:global .gdpsDescription tbody {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+	
+	:global .gdpsDescription tr {
+		display: flex;
+		gap: 5px;
+	}
+	
+	:global .gdpsDescription thead th {
+		display: block;
+		
+		border-radius: var(--m3-shape-small);
+		
+		background: var(--m3c-primary-container);
+		color: var(--m3c-on-primary-container);
+		
+		width: 100%;
+		padding: .5rem;
+	}
+	
+	:global .gdpsDescription tbody td {
+		display: block;
+		
+		border-radius: var(--m3-shape-small);
+		
+		background: var(--m3c-secondary-container);
+		color: var(--m3c-on-secondary-container);
+		
+		width: 100%;
+		padding: .5rem;
+	}
+	
+	:global .gdpsDescription thead th:nth-of-type(1) {
+		border-top-left-radius: var(--m3-shape-large);
+	}
+	
+	:global .gdpsDescription thead th:nth-last-of-type(1) {
+		border-top-right-radius: var(--m3-shape-large);
+	}
+	
+	:global .gdpsDescription tbody tr:nth-last-of-type(1) td:nth-of-type(1) {
+		border-bottom-left-radius: var(--m3-shape-large);
+	}
+	
+	:global .gdpsDescription tbody tr:nth-last-of-type(1) td:nth-last-of-type(1) {
+		border-bottom-right-radius: var(--m3-shape-large);
 	}
 	
 	.gdpsTrailer {

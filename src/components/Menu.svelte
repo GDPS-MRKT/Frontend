@@ -4,7 +4,7 @@
 	let { icon, label, color, title, onClick } = $props();
 </script>
 
-<div class={["tag", (color != undefined ? color : ""), (onClick != undefined ? "m3-layer clickable" : "")].join(" ")} title={title != undefined ? title : ""} on:click={onClick}>
+<div class={["menu", (color != undefined ? color : ""), (onClick != undefined ? "m3-layer clickable" : "")].join(" ")} title={title != undefined ? title : ""} on:click={onClick}>
 	{#if icon != undefined}
 		<Icon icon={icon} />
 	{/if}
@@ -15,7 +15,7 @@
 </div>
 
 <style>
-	.tag {
+	.menu {
 		display: flex;
 		align-items: center;
 		
@@ -32,9 +32,11 @@
 		
 		--shape: var(--m3-shape-small);
 		border-radius: var(--shape);
+		
+		overflow-wrap: none;
 	}
 	
-	.tag.clickable {
+	.menu.clickable {
 		user-select: none;
 		
 		box-shadow: none;
@@ -47,46 +49,46 @@
 			color var(--m3-easing-fast);
 	}
 	
-	.tag.clickable:hover {
+	.menu.clickable:hover {
 		box-shadow: var(--m3-elevation-1);
 	}
 	
-	.tag:nth-of-type(1).clickable:active {
+	.menu:nth-of-type(1).clickable:active {
 		border-top-left-radius: var(--shape);
-		border-bottom-left-radius: var(--shape);
+		border-top-right-radius: var(--shape);
 	}
 	
-	.tag:nth-last-of-type(1).clickable:active {
-		border-top-right-radius: var(--shape);
+	.menu:nth-last-of-type(1).clickable:active {
+		border-bottom-left-radius: var(--shape);
 		border-bottom-right-radius: var(--shape);
 	}
 	
-	.tag.gold {
+	.menu.gold {
 		background: var(--m3c-primary-container-gold);
 		color: var(--m3c-on-primary-container-gold);
 	}
 	
-	.tag.primary {
+	.menu.primary {
 		background: var(--m3c-primary);
 		color: var(--m3c-on-primary);
 	}
 	
-	:global .tag span {
+	:global .menu span {
 		font-size: 0.875rem;
 		font-weight: 500;
 	}
 	
-	.tag:nth-of-type(1) {
+	.menu:nth-of-type(1) {
 		border-top-left-radius: var(--m3-shape-large);
-		border-bottom-left-radius: var(--m3-shape-large);
+		border-top-right-radius: var(--m3-shape-large);
 	}
 	
-	.tag:nth-last-of-type(1) {
-		border-top-right-radius: var(--m3-shape-large);
+	.menu:nth-last-of-type(1) {
+		border-bottom-left-radius: var(--m3-shape-large);
 		border-bottom-right-radius: var(--m3-shape-large);
 	}
 	
-	:global .small .tag {
+	:global .small .menu {
 		gap: 3px;
 		
 		font-size: 16px;
@@ -96,21 +98,21 @@
 		border-radius: var(--shape);
 	}
 	
-	:global .small .tag span {
+	:global .small .menu span {
 		font-size: 13px;
 	}
 	
-	:global .small .tag:nth-of-type(1) {
+	:global .small .menu:nth-of-type(1) {
 		border-top-left-radius: var(--m3-shape-small);
-		border-bottom-left-radius: var(--m3-shape-small);
+		border-top-right-radius: var(--m3-shape-small);
 	}
 	
-	:global .small .tag:nth-last-of-type(1) {
-		border-top-right-radius: var(--m3-shape-small);
+	:global .small .menu:nth-last-of-type(1) {
+		border-bottom-left-radius: var(--m3-shape-small);
 		border-bottom-right-radius: var(--m3-shape-small);
 	}
 	
-	:global .small .tag.clickable {
+	:global .small .menu.clickable {
 		cursor: pointer;
 		
 		transition:
@@ -120,13 +122,13 @@
 			color var(--m3-easing-fast);
 	}
 	
-	:global .small .tag:nth-of-type(1).clickable:active {
+	:global .small .menu:nth-of-type(1).clickable:active {
 		border-top-left-radius: var(--shape);
-		border-bottom-left-radius: var(--shape);
+		border-top-right-radius: var(--shape);
 	}
 	
-	:global .small .tag:nth-last-of-type(1).clickable:active {
-		border-top-right-radius: var(--shape);
+	:global .small .menu:nth-last-of-type(1).clickable:active {
+		border-bottom-left-radius: var(--shape);
 		border-bottom-right-radius: var(--shape);
 	}
 </style>

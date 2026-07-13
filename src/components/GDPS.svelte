@@ -45,7 +45,9 @@
 				<Tag icon={iconFavorite} label="30" />
 			</TagsGroup>
 			
-			<Tag icon={iconHistory} label="6 y. ago" />
+			<TagsGroup>
+				<Tag icon={iconHistory} label="6 y. ago" />
+			</TagsGroup>
 		</div>
 	</div>
 </div>

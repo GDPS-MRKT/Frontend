@@ -4,13 +4,19 @@
 	
 	let open = $state(false);
 	
+	function isCorrectLink(href) {
+		if(!href.startsWith("http:") && !href.startsWith("https:")) return false;
+		
+		return true;
+	}
+	
 	function openDialog(event) {
 		if(href.startsWith("#")) return;
 		
 		event.preventDefault();
 		event.stopPropagation();
 		
-		if(!href.startsWith("http:") && !href.startsWith("https:")) return;
+		if(!isCorrectLink(href)) return;
 		
 		open = true;
 	}
@@ -25,8 +31,10 @@
 	}
 </script>
 
+{#if isCorrectLink(href) || href.startsWith("#")}
 <a
-	{href}
+	class="linkElement"
+	href={href}
     on:click={openDialog}
     {title}
 >
@@ -34,7 +42,7 @@
 </a>
 <Dialog headline="External link" bind:open>
 	Are you sure you want to open this link?<br>
-	<code>
+	<code class="linkPreview">
 		{href}
 	</code>
 	{#snippet buttons()}
@@ -42,10 +50,32 @@
 		<Button variant="tonal" onclick={() => openLink(href)}>Open</Button>
 	{/snippet}
 </Dialog>
+{:else}
+	<a class="noLink">{@render children?.()}</a>
+{/if}
 
 <style>
-	a {
+	a.linkElement {
 		cursor: pointer;
-		color: -webkit-link;
+		color: var(--m3c-primary);
+		font-weight: 500;
+		
+		transition: color var(--m3-easing-fast);
+	}
+	
+	a.linkElement:hover {
+		color: var(--m3c-on-primary-container);
+	}
+	
+	.linkPreview {
+		display: flex;
+		
+		padding: .5rem .7rem;
+		margin-top: .5rem;
+		font-size: .9rem;
+		
+		max-width: 100%;
+		
+		overflow-wrap: anywhere;
 	}
 </style>

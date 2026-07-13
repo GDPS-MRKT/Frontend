@@ -1,10 +1,12 @@
 <script>
-	import SvelteMarkdown from '@humanspeak/svelte-markdown';
+	import SvelteMarkdown, { allowHtmlOnly } from '@humanspeak/svelte-markdown';
 	import hr from './Markdown/hr.svelte';
 	import a from './Markdown/a.svelte';
 	import RawData from './Markdown/RawData.svelte';
 	
 	let { source } = $props();
+	
+	const noHTML = allowHtmlOnly([]);
 </script>
 
 <SvelteMarkdown
@@ -12,6 +14,7 @@
 	renderers={{
 		hr: hr,
 		link: a,
-		image: RawData 
+		html: noHTML,
+		image: RawData,
 	}}
 />

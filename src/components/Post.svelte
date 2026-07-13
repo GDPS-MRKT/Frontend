@@ -3,15 +3,21 @@
 	import { Icon, Button } from "m3-svelte";
 	import TagsGroup from "./TagsGroup.svelte";
 	import Tag from "./Tag.svelte";
+	import MenuGroup from "./MenuGroup.svelte";
+	import MenuItems from "./MenuItems.svelte";
+	import Menu from "./Menu.svelte";
 	
 	import iconFavorite from "@ktibow/iconset-material-symbols/favorite-rounded";
 	import iconComment from "@ktibow/iconset-material-symbols/comment-rounded";
 	import iconVisibility from "@ktibow/iconset-material-symbols/visibility-rounded";
+	import iconMoreHoriz from "@ktibow/iconset-material-symbols/more-horiz";
+	import iconLink from "@ktibow/iconset-material-symbols/link-rounded";
+	import iconFlag from "@ktibow/iconset-material-symbols/flag-rounded";
 	
 	let { gdpsID } = $props();
 </script>
 
-<div class="post">
+<div class="post containsMenu">
 	<div class="postTitle">
 		<span class="logo">
 			<img src="https://images.gcs.skin/gcs/logo.png" alt="GDPS logo" />
@@ -31,18 +37,21 @@
 				<Tag label="2 weeks ago" />
 			</TagsGroup>
 		</div>
+		
+		<MenuGroup icon={iconMoreHoriz}>
+			<MenuItems>
+				<Menu onClick={() => {}} icon={iconLink} label="Copy link" />
+				<Menu onClick={() => {}} icon={iconFlag} label="Report" />
+			</MenuItems>
+		</MenuGroup>
 	</div>
 	
 	<p>GDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurry</p>
 	
 	<div class="postButtons">
 		<TagsGroup>
-			{#if gdpsID != undefined}
-				<Tag icon={iconFavorite} label="10" color="primary" onClick={() => console.log(123)} />
-			{:else}
-				<Tag icon={iconFavorite} label="10" />
-			{/if}
-			<Tag icon={iconComment} label="2" />
+			<Tag icon={iconFavorite} label="10" color={gdpsID != undefined ? "primary" : null} onClick={() => console.log(123)} />
+			<Tag icon={iconComment} label="2" onClick={() => console.log(123)} />
 		</TagsGroup>
 		
 		<TagsGroup>
@@ -110,7 +119,7 @@
 	
 	.logo img:nth-of-type(2) {
 		height: 26px;
-		border-radius: 100px;
+		border-radius: 10px;
 		
 		position: absolute;
 		
