@@ -1,6 +1,5 @@
 <script>
-	import TagsGroup from "./TagsGroup.svelte";
-	import Tag from "./Tag.svelte";
+	import { Icon, Button } from "m3-svelte";
 	
 	let { children, icon } = $props();
 	
@@ -8,9 +7,9 @@
 </script>
 
 <div class="menuGroup" show={show}>
-	<TagsGroup>
-		<Tag icon={icon} onClick={() => show = !show} />
-	</TagsGroup>
+	<Button variant="tonal" iconType="full" onclick={() => show = !show}>
+		<Icon {icon} />
+	</Button>
 	
 	{@render children()}
 </div>

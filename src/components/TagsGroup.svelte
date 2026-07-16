@@ -12,13 +12,13 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		
-		gap: 5px;
+		gap: 2px;
 		
 		overflow-x: scroll;
 	}
 	
 	:global .tagsGroup.small {
-		gap: 3px;
+		gap: 1px;
 	}
 
 	.tagsGroup::-webkit-scrollbar {

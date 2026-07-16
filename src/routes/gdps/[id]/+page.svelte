@@ -1,6 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { Icon, Button, LoadingIndicator } from "m3-svelte";
+	import Image from "../../../components/Image.svelte";
 	import Markdown from "../../../components/Markdown.svelte";
 	import Header from "../../../components/Header.svelte";
 	import TagsGroup from "../../../components/TagsGroup.svelte";
@@ -41,6 +42,23 @@
 ## НАШ НАСТОЯЩИЙ ФЛАГ
 
 ![](https://gcs.skin/WTFIcons/welcome_to_the_gcs.png?youre_furry_femboy)
+###### Что, не работает, да? И не должен!!!
+
+----
+
+## Tables
+
+| Header 1 | Header 2 | Header 3 |
+|----------|----------|----------|
+| Cell 1   | Cell 2   | Cell 3   |
+| Row 2    | Data     | More     |
+
+Aligned Table:
+
+| Left     | Center   | Right    |
+|:---------|:--------:|----------:|
+| Left     | Center   | Right    |
+| aligned  | aligned  | aligned  |
 
 ----
 
@@ -97,7 +115,7 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 
 <div class="gdpsWrapper">
 	<div class="gdpsBannerDiv">
-		<img class="banner" src="https://images.gcs.skin/gcs/banner.png" alt="GDPS banner" />
+		<Image src="https://images.gcs.skin/gcs/banner.png" title="GDPS banner" />
 	</div>
 	
 	<div class="gdpsPage">
@@ -105,7 +123,7 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 			<div class="gdpsCard containsMenu">
 				<div class="gdpsTitle">
 					<span class="logo">
-						<img src="https://images.gcs.skin/gcs/logo.png" alt="GDPS logo" />
+						<Image src="https://images.gcs.skin/gcs/logo.png" alt="https://images.gcs.skin/mrkt/logo.png" title="GDPS logo" />
 					</span>
 					
 					<div class="gdpsName">
@@ -224,19 +242,11 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 		aspect-ratio: 21/4;
 		object-fit: cover;
 		
+		border-radius: var(--m3-shape-extra-large);
+		overflow: hidden;
+		
 		position: relative;
 		z-index: 0;
-	}
-	
-	.banner {
-		max-width: 100%;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		
-		border-radius: var(--m3-shape-extra-large);
-		
-		z-index: 1;
 	}
 	
 	.gdpsPage {
@@ -337,12 +347,12 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 	}
 	
 	.gdpsTitle .logo {
-		height: 90px;
-	}
-	
-	.gdpsTitle .logo img {
-		height: 90px;
+		max-height: 90px;
+		max-width: 90px;
+		width: 100%;
+		
 		border-radius: var(--m3-shape-large);
+		overflow: hidden;
 	}
 	
 	.gdpsStats {

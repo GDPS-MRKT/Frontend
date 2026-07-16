@@ -1,12 +1,13 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { Icon, Button } from "m3-svelte";
+	import Image from "./Image.svelte";
 </script>
 
-<div class="m3-layer gdps" on:click={() => goto("/gdps/GreenCatsServer")}>
+<div class="m3-layer gdpsSmall" on:click={() => goto("/gdps/GreenCatsServer")}>
 	<div class="gdpsTitle">
-		<span class="logo">
-			<img src="https://images.gcs.skin/gcs/logo.png" alt="GDPS logo" />
+		<span class="smallGDPSlogo">
+			<Image src="https://images.gcs.skin/gcs/logo.png" title="GDPS logo" />
 		</span>
 		
 		<div class="gdpsName">
@@ -17,21 +18,32 @@
 </div>
 
 <style>
-	.gdps {
+	.gdpsSmall {
 		background: var(--m3c-secondary-container);
 		
 		padding: .75rem;
-		border-radius: var(--m3-shape-small);
+		--shape: var(--m3-shape-medium);
+		border-radius: var(--shape);
 		
 		cursor: pointer;
+		
+		transition:
+			border-radius var(--m3-easing-fast-spatial),
+			box-shadow var(--m3-easing-fast),
+			background-color var(--m3-easing-fast),
+			color var(--m3-easing-fast);
 	}
 	
-	.gdps:nth-of-type(1) {
+	.gdpsSmall:active {
+		--shape: var(--m3-shape-small);
+	}
+	
+	.gdpsSmall:nth-of-type(1) {
 		border-top-left-radius: var(--m3-shape-large-increased);
 		border-top-right-radius: var(--m3-shape-large-increased);
 	}
 	
-	.gdps:nth-last-of-type(1) {
+	.gdpsSmall:nth-last-of-type(1) {
 		border-bottom-left-radius: var(--m3-shape-large-increased);
 		border-bottom-right-radius: var(--m3-shape-large-increased);
 	}
@@ -56,12 +68,9 @@
 		color: var(--m3c-on-secondary-container);
 	}
 	
-	.gdpsTitle .logo {
-		height: 40px;
-	}
-	
-	.gdpsTitle .logo img {
+	.gdpsTitle .smallGDPSlogo {
 		height: 40px;
 		border-radius: var(--m3-shape-small);
+		overflow: hidden;
 	}
 </style>

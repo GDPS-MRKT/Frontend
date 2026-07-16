@@ -1,5 +1,5 @@
 <script>
-	import { Icon, Button, LoadingIndicator } from "m3-svelte";
+	import { Icon, Button, ConnectedButtons, LoadingIndicator } from "m3-svelte";
 	import Header from "../../components/Header.svelte";
 	import GDPS from "../../components/GDPS.svelte";
 	import SearchInput from "../../components/SearchInput.svelte";
@@ -58,13 +58,14 @@
 		<div class="searchStickyDiv">
 			<SearchInput onInput={(event) => searchGDPSs(event)} />
 			
-			<div class="buttonsDiv">
+			<ConnectedButtons>
 				{#each Object.values(searchTabs) as tab}
-					<Button variant={selectedTab == tab.id ? "filled" : "tonal"} iconType="left" onclick={() => changeSearchTab(tab.id)}>
+					<Button variant={selectedTab == tab.id ? "filled" : "tonal"} square iconType="left" onclick={() => changeSearchTab(tab.id)}>
+						<input type="radio" checked={selectedTab == tab.id} name="searchTab" />
 						<Icon icon={selectedTab == tab.id ? tab.iconSelected : tab.icon} /> {tab.text}
 					</Button>
 				{/each}
-			</div>
+			</ConnectedButtons>
 		</div>
 		
 		<div class="elementsDiv">

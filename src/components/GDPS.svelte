@@ -1,6 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { Icon, Button } from "m3-svelte";
+	import Image from "./Image.svelte";
 	import TagsGroup from "./TagsGroup.svelte";
 	import Tag from "./Tag.svelte";
 	
@@ -13,13 +14,13 @@
 
 <div class="m3-layer container gdps" on:click={() => goto("/gdps/GreenCatsServer")}>
 	<div class="bannerDiv">
-		<img class="banner" src="https://images.gcs.skin/gcs/banner.png" alt="GDPS banner" />
+		<Image src="https://images.gcs.skin/gcs/banner.png" title="GDPS banner" />
 	</div>
 	
 	<div class="gdpsDesc">
 		<div class="gdpsTitle">
 			<span class="logo">
-				<img src="https://images.gcs.skin/gcs/logo.png" alt="GDPS logo" />
+				<Image src="https://images.gcs.skin/gcs/logo.png" title="GDPS logo" />
 			</span>
 			
 			<div class="gdpsName">
@@ -112,22 +113,13 @@
 		object-fit: cover;
 		
 		border-radius: var(--m3-shape-small);
-		
-		position: relative;
-		z-index: 0;
-	}
-	
-	.banner {
-		max-width: 100%;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		
-		border-radius: var(--m3-shape-small);
 		border-top-left-radius: var(--m3-shape-large);
 		border-top-right-radius: var(--m3-shape-large);
 		
-		z-index: 1;
+		position: relative;
+		z-index: 0;
+		
+		overflow: hidden;
 	}
 	
 	.gdpsTitle {
@@ -158,13 +150,12 @@
 		border-top-right-radius: var(--m3-shape-large);
 	}
 	
-	.logo img {
+	:global .logo object {
 		aspect-ratio: 1/1;
 		object-fit: cover;
 		
 		width: 100%;
 		border-radius: var(--m3-shape-medium);
-		background: var(--m3c-on-secondary-container);
 	}
 	
 	.logo:before,

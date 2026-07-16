@@ -6,8 +6,8 @@
 	import iconHome from "@ktibow/iconset-material-symbols/home-rounded";
 	import iconHomeOutline from "@ktibow/iconset-material-symbols/home-outline-rounded";
 	import iconSearch from "@ktibow/iconset-material-symbols/search-rounded";
-	import iconStarShine from "@ktibow/iconset-material-symbols/star-shine-rounded";
-	import iconStarShineOutline from "@ktibow/iconset-material-symbols/star-shine-outline-rounded";
+	import iconPerson from "@ktibow/iconset-material-symbols/person-rounded";
+	import iconPersonOutline from "@ktibow/iconset-material-symbols/person-outline-rounded";
 	
 	function isPageSelected(path) {
 		return path == $page.url.pathname;
@@ -16,7 +16,7 @@
 	const tabs = [
 		{text: "Home", icon: iconHomeOutline, iconSelected: iconHome, path: "/"},
 		{text: "Search", icon: iconSearch, iconSelected: iconSearch, path: "/search"},
-		{text: "Kit", icon: iconStarShineOutline, iconSelected: iconStarShine, path: "/kit"}
+		{text: "Profile", icon: iconPersonOutline, iconSelected: iconPerson, path: "/profile/Sa1ntSosetHui"}
 	];
 </script>
 

@@ -1,5 +1,6 @@
 <script>
 	import { Icon, Button, LoadingIndicator } from "m3-svelte";
+	import Image from "../../../components/Image.svelte";
 	import Header from "../../../components/Header.svelte";
 	import GDPSSmall from "../../../components/GDPSSmall.svelte";
 	import TagsGroup from "../../../components/TagsGroup.svelte";
@@ -40,8 +41,12 @@
 	<div class="profileUser">
 		<div class="profileInfo">
 			<div class="profilePFPDiv">
-				<img class="banner" src="https://images.gcs.skin/gcs/banner.png" alt="GDPS banner" />
-				<img class="logo" src="https://images.gcs.skin/gcs/logo.png" alt="GDPS logo" />
+				<span class="profilePFPBanner">
+					<Image src="https://images.gcs.skin/gcs/banner.png" title="GDPS banner" />
+				</span>
+				<span class="profilePFPLogo">
+					<Image src="https://images.gcs.skin/gcs/logo.png" title="GDPS logo" />
+				</span>
 			</div>
 			
 			<h2>Sa1ntSosetHui</h2>
@@ -53,7 +58,7 @@
 			</TagsGroup>
 			
 			<h3>Socials</h3>
-			<div class="profileSocials">
+			<TagsGroup>
 				<Button target="_blank" rel="noopener" href="https://gcs.skin" title="YouTube">
 					<svelte:component this={iconYouTube} /> YouTube
 				</Button>
@@ -81,7 +86,7 @@
 				<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Website">
 					<Icon icon={iconLink} /> Website
 				</Button>
-			</div>
+			</TagsGroup>
 		</div>
 		
 		<div class="profileInfo">
@@ -178,34 +183,35 @@
 		align-items: center;
 		
 		max-width: 100%;
-		aspect-ratio: 19/6;
 		object-fit: cover;
 		
 		border-radius: var(--m3-shape-small);
 		
 		position: relative;
 		z-index: 0;
-		
-		margin-bottom: 60px;
 	}
 	
-	.banner {
+	.profilePFPBanner {
 		max-width: 100%;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		aspect-ratio: 19/6;
 		
 		border-radius: var(--m3-shape-large);
+		overflow: hidden;
 		
 		z-index: 1;
 	}
 	
-	.logo {
-		width: 130px;
+	.profilePFPLogo {
+		max-width: 130px;
+		max-height: 130px;
 		margin-top: -65px;
 		
 		border-radius: 100px;
 		border: 5px solid var(--m3c-surface-container-highest);
+		overflow: hidden;
 		
 		z-index: 2;
 	}
@@ -232,16 +238,6 @@
 		margin: 0px;
 		
 		color: var(--m3c-on-primary-container);
-	}
-	
-	.profileSocials	{
-		display: flex;
-		justify-content: flex-start;
-		flex-wrap: wrap;
-		
-		gap: 5px;
-		
-		width: 100%;
 	}
 	
 	.profileGDPSs {

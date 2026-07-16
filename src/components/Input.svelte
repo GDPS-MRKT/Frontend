@@ -1,5 +1,6 @@
 <script>
 	import { Icon } from "m3-svelte";
+	import Image from "./Image.svelte";
 	
 	import iconSend from "@ktibow/iconset-material-symbols/send-rounded";
 	
@@ -7,8 +8,12 @@
 </script>
 
 <div class="searchInputElement">
-	<img src={image} alt="Logo" />
+	<span class="inputLogo">
+		<Image src={image} title="Logo" />
+	</span>
+	
 	<input type="text" placeholder={label} on:input={(event) => onInput(event.target.value)} />
+	
 	<div type="button" class="m3-layer sendButton">
 		<Icon icon={iconSend} />
 	</div>
@@ -22,7 +27,7 @@
 		
 		width: 100%;
 		
-		gap: 5px;
+		gap: 2px;
 		
 		position: relative;
 	}
@@ -42,7 +47,7 @@
 		background: var(--m3c-primary);
 		color: var(--m3c-on-primary);
 		
-		--shape: var(--m3-shape-small);
+		--shape: var(--m3-shape-medium);
 		border-radius: var(--shape);
 		border-top-right-radius: var(--m3-shape-large);
 		border-bottom-right-radius: var(--m3-shape-large);
@@ -59,8 +64,7 @@
 	}
 	
 	.sendButton:active {
-		border-top-right-radius: var(--shape);
-		border-bottom-right-radius: var(--shape);
+		--shape: var(--m3-shape-small);
 	}
 	
 	input {
@@ -73,9 +77,9 @@
 		
 		background: var(--m3c-secondary-container);
 		
-		border-radius: var(--m3-shape-extra-large);
-		border-top-right-radius: var(--m3-shape-small);
-		border-bottom-right-radius: var(--m3-shape-small);
+		border-radius: var(--m3-shape-large);
+		border-top-right-radius: var(--m3-shape-medium);
+		border-bottom-right-radius: var(--m3-shape-medium);
 		
 		color: var(--m3c-on-primary-container);
 		
@@ -86,8 +90,14 @@
 		outline: none;
 	}
 	
-	img {
-		width: 36px;
+	.inputLogo {
+		min-width: 36px;
+		max-height: 36px;
+		max-width: 36px;
+		
 		border-radius: 100px;
+		overflow: hidden;
+		
+		margin-right: 3px;
 	}
 </style>

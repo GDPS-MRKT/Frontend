@@ -1,6 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { Icon, Button } from "m3-svelte";
+	import Image from "./Image.svelte";
 	import TagsGroup from "./TagsGroup.svelte";
 	import Tag from "./Tag.svelte";
 	import MenuGroup from "./MenuGroup.svelte";
@@ -19,11 +20,15 @@
 
 <div class="post containsMenu">
 	<div class="postTitle">
-		<span class="logo">
-			<img src="https://images.gcs.skin/gcs/logo.png" alt="GDPS logo" />
+		<span class="postLogos">
+			<span class="postPFP">
+				<Image src="https://images.gcs.skin/gcs/logo.png" title="GDPS logo" />
+			</span>
 			
 			{#if gdpsID != undefined}
-				<img src="https://images.gcs.skin/gcs/logo.png" alt="GDPS logo" />
+				<span class="postGDPSLogo">
+					<Image src="https://images.gcs.skin/gcs/logo.png" title="GDPS logo" />
+				</span>
 			{/if}
 		</span>
 		
@@ -106,18 +111,26 @@
 		color: var(--m3c-on-primary-container);
 	}
 	
-	.logo {
-		height: 50px;
+	.postLogos {
+		max-height: 50px;
+		max-width: 50px;
+		width: 100%;
 		
 		position: relative;
 	}
 	
-	.logo img {
-		height: 50px;
+	.postPFP {
+		display: block;
+		
+		max-height: 50px;
+		max-width: 50px;
+		width: 100%;
+		
 		border-radius: 100px;
+		overflow: hidden;
 	}
 	
-	.logo img:nth-of-type(2) {
+	.postGDPSLogo {
 		height: 26px;
 		border-radius: 10px;
 		
@@ -126,6 +139,7 @@
 		bottom: -3px;
 		right: -3px;
 		border: 3px solid var(--m3c-surface-container-highest);
+		overflow: hidden;
 	}
 	
 	.postTitle {
