@@ -14,7 +14,7 @@
 		gap: 2px;
 		
 		position: absolute;
-		top: calc(100% + 10px);
+		top: calc(100% + 5px);
 		right: 0px;
 		
 		width: max-content;
@@ -27,5 +27,7 @@
 	:global .menuGroup[show=true] .menuItems {
 		opacity: 1;
 		visibility: initial;
+		
+		top: calc(100% + 10px);
 	}
 </style>

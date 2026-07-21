@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { Icon, Button, LoadingIndicator } from "m3-svelte";
 	import Image from "../../../components/Image.svelte";
@@ -42,7 +43,7 @@
 ## НАШ НАСТОЯЩИЙ ФЛАГ
 
 ![](https://gcs.skin/WTFIcons/welcome_to_the_gcs.png?youre_furry_femboy)
-###### Что, не работает, да? И не должен!!!
+###### Что, не работает, да? **И не должен!!!**
 
 ----
 
@@ -109,9 +110,20 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 МЫ — ФУРРИ, ПРИЯТНЫЕ МИРУ СОЗДАНЬЯ
 
 ЖИВЁМ В ЗАРИСОВКАХ СОЗНАНЬЯ`;
+
+	let gdpsInfoStick = $state("bottom");
+	let elementStick = () => {
+		gdpsInfoStick = gdpsInfoStickElement.scrollHeight > (window.innerHeight - 60) ? "bottom" : "top";
+	}
+	onMount(() => {
+		let gdpsInfoStickElement = document.getElementById("gdpsInfoStickElement");
+		elementStick();
+	});
 </script>
 
 <Header title="GreenCatsServer" />
+
+<svelte:window on:resize={elementStick} />
 
 <div class="gdpsWrapper">
 	<div class="gdpsBannerDiv">
@@ -119,7 +131,7 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 	</div>
 	
 	<div class="gdpsPage">
-		<div class="gdpsInfo short">
+		<div class="gdpsInfo short" id="gdpsInfoStickElement" stick={gdpsInfoStick}>
 			<div class="gdpsCard containsMenu">
 				<div class="gdpsTitle">
 					<span class="logo">
@@ -164,36 +176,36 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 			<div class="gdpsCard">
 				<h2>Download GDPS</h2>
 				<TagsGroup>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="YouTube">
+					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="PC">
 						<Icon icon={iconDesktopWindows} /> PC
 					</Button>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="YouTube">
+					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Android">
 						<Icon icon={iconAndroid} /> Android
 					</Button>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="YouTube">
-						<Icon icon={iconDesktopMac} /> Mac OS
+					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="macOS">
+						<Icon icon={iconDesktopMac} /> macOS
 					</Button>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="YouTube">
+					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="iOS">
 						<Icon icon={iconIos} /> iOS
 					</Button>
 				</TagsGroup>
 				
 				<h2>Socials</h2>
 				<TagsGroup>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="YouTube">
+					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Discord">
 						<svelte:component this={iconDiscord} /> Discord
 					</Button>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="GitHub">
+					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Telegram">
 						<svelte:component this={iconTelegram} /> Telegram
 					</Button>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="YouTube">
+					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Website">
 						<Icon icon={iconLink} /> Website
 					</Button>
 				</TagsGroup>
 			</div>
 			
 			<div class="gdpsCard">
-				<h2>GDPS trailer</h2>
+				<h2>Trailer</h2>
 				<iframe class="gdpsTrailer" src="https://www.youtube.com/embed/w8IIW2Bu_1A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 			</div>
 		</div>
@@ -264,6 +276,7 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 		gap: 5px;
 		
 		width: 100%;
+		height: 100%;
 	}
 	
 	.gdpsInfo.short {
@@ -272,6 +285,13 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 		position: sticky;
 		bottom: -30px;
 		align-self: flex-end;
+	}
+	
+	.gdpsInfo.short[stick="top"] {
+		bottom: initial;
+		top: -30px;
+		
+		align-self: initial;
 	}
 	
 	.gdpsCard {

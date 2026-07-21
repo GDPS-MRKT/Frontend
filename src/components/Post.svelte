@@ -105,7 +105,7 @@
 	}
 	
 	p {
-		font-size: 1.1rem;
+		font-size: 1rem;
 		overflow: hidden;
 		
 		color: var(--m3c-on-primary-container);
