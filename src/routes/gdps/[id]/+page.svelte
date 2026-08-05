@@ -29,6 +29,7 @@
 	import iconLink from "@ktibow/iconset-material-symbols/link-rounded";
 	import iconMoreHoriz from "@ktibow/iconset-material-symbols/more-horiz";
 	import iconFlag from "@ktibow/iconset-material-symbols/flag-rounded";
+	import iconEdit from "@ktibow/iconset-material-symbols/edit-rounded";
 	
 	let { params } = $props();
 	
@@ -41,9 +42,10 @@
 ----
 
 ## НАШ НАСТОЯЩИЙ ФЛАГ
-
+![](https://images.gcs.skin/gcs/banner.png)
 ![](https://gcs.skin/WTFIcons/welcome_to_the_gcs.png?youre_furry_femboy)
-###### Что, не работает, да? **И не должен!!!**
+![](https://images.gcs.skin/gcs/banner.png)
+###### Что, не работает, д... Погоди-ка...
 
 ----
 
@@ -121,7 +123,7 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 	});
 </script>
 
-<Header title="GreenCatsServer" />
+<Header title="Settings for GreenCatsServer" />
 
 <svelte:window on:resize={elementStick} />
 
@@ -153,6 +155,7 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 		
 					<MenuGroup icon={iconMoreHoriz}>
 						<MenuItems>
+							<Menu onClick={() => goto("/gdps/GreenCatsServer/settings")} icon={iconEdit} label="Edit" />
 							<Menu onClick={() => {}} icon={iconLink} label="Copy link" />
 							<Menu onClick={() => {}} icon={iconFlag} label="Report" />
 						</MenuItems>
@@ -370,9 +373,12 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 		max-height: 90px;
 		max-width: 90px;
 		width: 100%;
+		height: 100%;
 		
 		border-radius: var(--m3-shape-large);
 		overflow: hidden;
+		
+		aspect-ratio: 1/1;
 	}
 	
 	.gdpsStats {
@@ -396,6 +402,8 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 		color: var(--m3c-on-primary-container);
 		
 		margin: 0px;
+		
+		gap: 5px;
 	}
 	
 	h1,
@@ -528,12 +536,12 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 	:global .gdpsDescription tbody {
 		display: flex;
 		flex-direction: column;
-		gap: 5px;
+		gap: 3px;
 	}
 	
 	:global .gdpsDescription tr {
 		display: flex;
-		gap: 5px;
+		gap: 3px;
 	}
 	
 	:global .gdpsDescription thead th {
@@ -576,8 +584,20 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 		border-bottom-right-radius: var(--m3-shape-large);
 	}
 	
+	:global .gdpsDescription object {
+		border-radius: var(--m3-shape-large);
+		
+		max-height: 55vh;
+		max-width: fit-content;
+	}
+	
+	:global .gdpsDescription .descElement {
+		display: ruby;
+	}
+	
 	.gdpsTrailer {
 		border-radius: var(--m3-shape-large);
+		background: var(--m3c-surface-container);
 		
 		width: 100%;
 		height: 100%;

@@ -69,8 +69,14 @@
 	}
 	
 	.gdpsTitle .smallGDPSlogo {
-		height: 40px;
+		max-height: 40px;
+		max-width: 40px;
+		width: 100%;
+		height: 100%;
+		
 		border-radius: var(--m3-shape-small);
 		overflow: hidden;
+		
+		aspect-ratio: 1/1;
 	}
 </style>

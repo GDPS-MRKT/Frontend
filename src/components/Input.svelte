@@ -91,13 +91,16 @@
 	}
 	
 	.inputLogo {
-		min-width: 36px;
-		max-height: 36px;
 		max-width: 36px;
+		max-height: 36px;
+		width: 100%;
+		height: 100%;
 		
 		border-radius: 100px;
 		overflow: hidden;
 		
 		margin-right: 3px;
+		
+		aspect-ratio: 1/1;
 	}
 </style>

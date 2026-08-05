@@ -182,7 +182,7 @@
 	
 	.logo:after {
 		right: 0px;
-		transform: translate(calc(var(--border-padding) * 3 + 0.5px), -58px);
+		transform: translate(calc(var(--border-padding) * 3 + 0.5px), -53px);
 	}
 	
 	.filler {

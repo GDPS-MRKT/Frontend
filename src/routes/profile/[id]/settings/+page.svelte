@@ -65,7 +65,7 @@
 					<div class="profileEditButton">
 						<Icon icon={iconEdit} /> Edit
 					</div>
-					<Image src="https://images.gcs.skin/gcs/banner.png" title="GDPS banner" />
+					<Image src="https://images.gcs.skin/gcs/banner.png" title="GDPS banner" loading="left" />
 				</span>
 				
 				<span class="profilePFPLogo">
@@ -114,6 +114,8 @@
 	
 	<div class="profileSettings">
 		<div class="profileInfo">
+			<h4>Information</h4>
+			
 			<Setting icon={iconPerson} title="Username" value="Sa1ntSosetHui">
 				<Button iconType="full">
 					<Icon icon={iconEdit} />
@@ -142,6 +144,8 @@
 		</div>
 		
 		<div class="profileInfo">
+			<h4>Socials</h4>
+			
 			{#each socialsArray as social}
 				<Setting icon={social.icon} title={social.title} value={social.value.length ? social.value : "Unset"}>
 					<Button iconType="full">
@@ -273,6 +277,8 @@
 		opacity: 0;
 		cursor: pointer;
 		transition: var(--m3-easing-fast);
+		
+		z-index: 2;
 	}
 	
 	.profilePFPBanner .profileEditButton {
@@ -291,11 +297,15 @@
 		
 		max-width: 130px;
 		max-height: 130px;
+		width: 100%;
+		height: 100%;
 		margin-top: -65px;
 		
 		border-radius: 100px;
 		border: 5px solid var(--m3c-surface-container-highest);
 		overflow: hidden;
+		
+		aspect-ratio: 1/1;
 		
 		z-index: 2;
 	}
@@ -322,6 +332,15 @@
 		margin: 0px;
 		
 		color: var(--m3c-on-primary-container);
+	}
+	
+	h4 {
+		color: var(--m3c-on-secondary-container);
+		font-size: 1rem;
+		font-weight: 600;
+		
+		margin: 0px;
+		margin-left: .75rem;
 	}
 	
 	.profileGDPSs {

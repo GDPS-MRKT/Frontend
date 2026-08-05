@@ -125,13 +125,19 @@
 		max-height: 50px;
 		max-width: 50px;
 		width: 100%;
+		height: 100%;
 		
 		border-radius: 100px;
 		overflow: hidden;
+		
+		aspect-ratio: 1/1;
 	}
 	
 	.postGDPSLogo {
-		height: 26px;
+		max-height: 26px;
+		max-width: 26px;
+		width: 100%;
+		height: 100%;
 		border-radius: 10px;
 		
 		position: absolute;
@@ -140,6 +146,8 @@
 		right: -3px;
 		border: 3px solid var(--m3c-surface-container-highest);
 		overflow: hidden;
+		
+		aspect-ratio: 1/1;
 	}
 	
 	.postTitle {

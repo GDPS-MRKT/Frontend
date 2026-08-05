@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 	import { Icon, Button, Dialog } from "m3-svelte";
 	import Image from "../../../../components/Image.svelte";
 	import Header from "../../../../components/Header.svelte";
@@ -137,6 +138,8 @@
 		
 		<div class="gdpsSettings">
 			<div class="gdpsInfo">
+				<h4>Information</h4>
+				
 				<Setting icon={iconEditSquare} title="Name" value="GreenCatsServer">
 					<Button iconType="full">
 						<Icon icon={iconEdit} />
@@ -164,6 +167,8 @@
 			</div>
 			
 			<div class="gdpsInfo">
+				<h4>Download links</h4>
+				
 				{#each downloadsArray as download}
 					<Setting icon={download.icon} title={download.title} value={download.value.length ? download.value : "Unset"}>
 						<Button iconType="full">
@@ -174,6 +179,8 @@
 			</div>
 			
 			<div class="gdpsInfo">
+				<h4>Socials</h4>
+			
 				{#each socialsArray as social}
 					<Setting icon={social.icon} title={social.title} value={social.value.length ? social.value : "Unset"}>
 						<Button iconType="full">
@@ -319,14 +326,16 @@
 	}
 	
 	.gdpsTitle .logo {
-		position: relative;
-		
 		max-height: 90px;
 		max-width: 90px;
 		width: 100%;
+		height: 100%;
 		
 		border-radius: var(--m3-shape-large);
 		overflow: hidden;
+		
+		aspect-ratio: 1/1;
+		position: relative;
 	}
 	
 	.gdpsStats {
@@ -343,6 +352,15 @@
 		font-size: 1.4rem;
 		font-weight: 800;
 		margin: 0px;
+	}
+	
+	h4 {
+		color: var(--m3c-on-secondary-container);
+		font-size: 1rem;
+		font-weight: 600;
+		
+		margin: 0px;
+		margin-left: .75rem;
 	}
 	
 	.gdpsTrailer {
@@ -383,6 +401,8 @@
 		opacity: 0;
 		cursor: pointer;
 		transition: var(--m3-easing-fast);
+		
+		z-index: 2;
 	}
 	
 	.gdpsEditButton:hover {

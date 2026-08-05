@@ -54,7 +54,7 @@
 		<div class="profileInfo">
 			<div class="profilePFPDiv">
 				<span class="profilePFPBanner">
-					<Image src="https://images.gcs.skin/gcs/banner.png" title="GDPS banner" />
+					<Image src="https://images.gcs.skin/gcs/banner.png" title="GDPS banner" loading="left" />
 				</span>
 				<span class="profilePFPLogo">
 					<Image src="https://images.gcs.skin/gcs/logo.png" title="GDPS logo" />
@@ -226,11 +226,15 @@
 	.profilePFPLogo {
 		max-width: 130px;
 		max-height: 130px;
+		width: 100%;
+		height: 100%;
 		margin-top: -65px;
 		
 		border-radius: 100px;
 		border: 5px solid var(--m3c-surface-container-highest);
 		overflow: hidden;
+		
+		aspect-ratio: 1/1;
 		
 		z-index: 2;
 	}
