@@ -8,6 +8,7 @@
 	import TagsGroup from "../../../../components/TagsGroup.svelte";
 	import Tag from "../../../../components/Tag.svelte";
 	import DialogInfo from "../../../../components/DialogInfo.svelte";
+	import ConnectedElements from "../../../../components/ConnectedElements.svelte";
 	
 	import iconVisibility from "@ktibow/iconset-material-symbols/visibility-rounded";
 	import iconThumbUp from "@ktibow/iconset-material-symbols/thumb-up-rounded";
@@ -75,100 +76,105 @@
 	
 	<div class="gdpsPage">
 		<div class="gdpsInfo short" id="gdpsInfoStickElement" stick={gdpsInfoStick}>
-			<div class="gdpsCard">
-				<div class="gdpsTitle">
-					<span class="logo">
-						<div class="gdpsEditButton">
-							<Icon icon={iconEdit} />
-						</div>
-						<Image src="https://images.gcs.skin/gcs/logo.png" alt="https://images.gcs.skin/mrkt/logo.png" title="GDPS logo" />
-					</span>
-					
-					<div class="gdpsName">
-						<h1>GreenCatsServer</h1>
-						<h3 on:click={() => goto("/profile/Sa1ntSosetHui")}>Sa1ntSosetHui</h3>
+			<ConnectedElements>
+				<div class="gdpsCard connectedElement">
+					<div class="gdpsTitle">
+						<span class="logo">
+							<div class="gdpsEditButton">
+								<Icon icon={iconEdit} />
+							</div>
+							<Image src="https://images.gcs.skin/gcs/logo.png" alt="https://images.gcs.skin/mrkt/logo.png" title="GDPS logo" />
+						</span>
 						
-						<TagsGroup size="small">
-							<Tag icon={iconStar} color="gold" label="Recommended" />
-							<Tag label="2.2" />
-							<Tag label="GCS" />
-							<Tag label="Femboys" />
-							<Tag label="Furi" />
-						</TagsGroup>
+						<div class="gdpsName">
+							<h1>GreenCatsServer</h1>
+							<h3 on:click={() => goto("/profile/Sa1ntSosetHui")}>Sa1ntSosetHui</h3>
+							
+							<TagsGroup size="small">
+								<Tag icon={iconStar} color="gold" label="Recommended" />
+								<Tag label="2.2" />
+								<Tag label="GCS" />
+								<Tag label="Femboys" />
+								<Tag label="Furi" />
+							</TagsGroup>
+						</div>
 					</div>
 				</div>
-			</div>
-			
-			<div class="gdpsCard">
-				<h2>Download GDPS</h2>
-				<TagsGroup>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="PC">
-						<Icon icon={iconDesktopWindows} /> PC
-					</Button>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Android">
-						<Icon icon={iconAndroid} /> Android
-					</Button>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="macOS">
-						<Icon icon={iconDesktopMac} /> macOS
-					</Button>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="iOS">
-						<Icon icon={iconIos} /> iOS
-					</Button>
-				</TagsGroup>
 				
-				<h2>Socials</h2>
-				<TagsGroup>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Discord">
-						<svelte:component this={iconDiscord} /> Discord
-					</Button>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Telegram">
-						<svelte:component this={iconTelegram} /> Telegram
-					</Button>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Website">
-						<Icon icon={iconLink} /> Website
-					</Button>
-				</TagsGroup>
-			</div>
-			
-			<div class="gdpsCard">
-				<h2>Trailer</h2>
-				<iframe class="gdpsTrailer" src="https://www.youtube.com/embed/w8IIW2Bu_1A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-			</div>
+				<div class="gdpsCard connectedElement">
+					<h2>Download GDPS</h2>
+					<TagsGroup>
+						<Button target="_blank" rel="noopener" href="https://gcs.skin" title="PC">
+							<Icon icon={iconDesktopWindows} /> PC
+						</Button>
+						<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Android">
+							<Icon icon={iconAndroid} /> Android
+						</Button>
+						<Button target="_blank" rel="noopener" href="https://gcs.skin" title="macOS">
+							<Icon icon={iconDesktopMac} /> macOS
+						</Button>
+						<Button target="_blank" rel="noopener" href="https://gcs.skin" title="iOS">
+							<Icon icon={iconIos} /> iOS
+						</Button>
+					</TagsGroup>
+					
+					<h2>Socials</h2>
+					<TagsGroup>
+						<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Discord">
+							<svelte:component this={iconDiscord} /> Discord
+						</Button>
+						<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Telegram">
+							<svelte:component this={iconTelegram} /> Telegram
+						</Button>
+						<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Website">
+							<Icon icon={iconLink} /> Website
+						</Button>
+					</TagsGroup>
+				</div>
+				
+				<div class="gdpsCard connectedElement">
+					<h2>Trailer</h2>
+					<iframe class="gdpsTrailer" src="https://www.youtube.com/embed/w8IIW2Bu_1A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				</div>
+			</ConnectedElements>
 		</div>
 		
 		<div class="gdpsSettings">
 			<div class="gdpsInfo">
 				<h4>Information</h4>
 				
-				<Setting icon={iconEditSquare} title="Name" value="GreenCatsServer">
-					<Button iconType="full">
-						<Icon icon={iconEdit} />
-					</Button>
-				</Setting>
-				
-				<Setting icon={iconComment} title="Description" value="You can use Markdown in descriptions">
-					<Button iconType="full">
-						<Icon icon={iconEdit} />
-					</Button>
-				</Setting>
-				
-				<Setting icon={iconYouTube} title="Trailer" value="w8IIW2Bu_1A">
-					<Button iconType="full">
-						<Icon icon={iconEdit} />
-					</Button>
-				</Setting>
-				
-				<Setting icon={iconInfo} title="Status" value="Pending">
-					<Button variant="tonal" iconType="full" onclick={() => dialogDiscordID = !dialogDiscordID}>
-						<Icon icon={iconInfo} />
-						<DialogInfo title="Status" description={["This GDPS is currently unlisted.", "It will become public once it passes the verification process."]} button="OK" open={dialogDiscordID} />
-					</Button>
-				</Setting>
+				<ConnectedElements size="large-increased">
+					<Setting icon={iconEditSquare} title="Name" value="GreenCatsServer">
+						<Button iconType="full">
+							<Icon icon={iconEdit} />
+						</Button>
+					</Setting>
+					
+					<Setting icon={iconComment} title="Description" value="You can use Markdown in descriptions">
+						<Button iconType="full">
+							<Icon icon={iconEdit} />
+						</Button>
+					</Setting>
+					
+					<Setting icon={iconYouTube} title="Trailer" value="w8IIW2Bu_1A">
+						<Button iconType="full">
+							<Icon icon={iconEdit} />
+						</Button>
+					</Setting>
+					
+					<Setting icon={iconInfo} title="Status" value="Pending">
+						<Button variant="tonal" iconType="full" onclick={() => dialogDiscordID = !dialogDiscordID}>
+							<Icon icon={iconInfo} />
+							<DialogInfo title="Status" description={["This GDPS is currently unlisted.", "It will become public once it passes the verification process."]} button="OK" open={dialogDiscordID} />
+						</Button>
+					</Setting>
+				</ConnectedElements>
 			</div>
 			
 			<div class="gdpsInfo">
 				<h4>Download links</h4>
 				
+				<ConnectedElements size="large-increased">
 				{#each downloadsArray as download}
 					<Setting icon={download.icon} title={download.title} value={download.value.length ? download.value : "Unset"}>
 						<Button iconType="full">
@@ -176,11 +182,13 @@
 						</Button>
 					</Setting>
 				{/each}
+				</ConnectedElements>
 			</div>
 			
 			<div class="gdpsInfo">
 				<h4>Socials</h4>
 			
+				<ConnectedElements size="large-increased">
 				{#each socialsArray as social}
 					<Setting icon={social.icon} title={social.title} value={social.value.length ? social.value : "Unset"}>
 						<Button iconType="full">
@@ -188,6 +196,7 @@
 						</Button>
 					</Setting>
 				{/each}
+				</ConnectedElements>
 			</div>
 		</div>
 	</div>
@@ -253,12 +262,15 @@
 		align-self: initial;
 	}
 	
+	.gdpsSettings .gdpsInfo {
+		gap: 3px;
+	}
+	
 	.gdpsCard {
 		display: flex;
 		flex-direction: column;
 		
 		background: var(--m3c-surface-container-highest);
-		border-radius: var(--m3-shape-large);
 		
 		width: 100%;
 		height: max-content;
@@ -269,20 +281,9 @@
 	}
 	
 	.gdpsCard.gdpsDescription {
-		border-radius: var(--m3-shape-extra-large);
 		color: var(--m3c-on-secondary-container);
 		
 		gap: 5px;
-	}
-	
-	.gdpsCard:not(.gdpsDescription):nth-of-type(1) {
-		border-top-left-radius: var(--m3-shape-extra-large);
-		border-top-right-radius: var(--m3-shape-extra-large);
-	}
-	
-	.gdpsCard:not(.gdpsDescription):nth-last-of-type(1) {
-		border-bottom-left-radius: var(--m3-shape-extra-large);
-		border-bottom-right-radius: var(--m3-shape-extra-large);
 	}
 	
 	.gdpsTitle {

@@ -10,8 +10,8 @@
 	import Post from "../../../components/Post.svelte";
 	import Input from "../../../components/Input.svelte";
 	import MenuGroup from "../../../components/MenuGroup.svelte";
-	import MenuItems from "../../../components/MenuItems.svelte";
 	import Menu from "../../../components/Menu.svelte";
+	import ConnectedElements from "../../../components/ConnectedElements.svelte";
 	
 	import iconVisibility from "@ktibow/iconset-material-symbols/visibility-rounded";
 	import iconThumbUp from "@ktibow/iconset-material-symbols/thumb-up-rounded";
@@ -134,83 +134,83 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 	
 	<div class="gdpsPage">
 		<div class="gdpsInfo short" id="gdpsInfoStickElement" stick={gdpsInfoStick}>
-			<div class="gdpsCard containsMenu">
-				<div class="gdpsTitle">
-					<span class="logo">
-						<Image src="https://images.gcs.skin/gcs/logo.png" alt="https://images.gcs.skin/mrkt/logo.png" title="GDPS logo" />
-					</span>
-					
-					<div class="gdpsName">
-						<h1>GreenCatsServer</h1>
-						<h3 on:click={() => goto("/profile/Sa1ntSosetHui")}>Sa1ntSosetHui</h3>
+			<ConnectedElements>
+				<div class="gdpsCard containsMenu connectedElement">
+					<div class="gdpsTitle">
+						<span class="logo">
+							<Image src="https://images.gcs.skin/gcs/logo.png" alt="https://images.gcs.skin/mrkt/logo.png" title="GDPS logo" />
+						</span>
 						
-						<TagsGroup size="small">
-							<Tag icon={iconStar} color="gold" label="Recommended" />
-							<Tag label="2.2" />
-							<Tag label="GCS" />
-							<Tag label="Femboys" />
-							<Tag label="Furi" />
-						</TagsGroup>
-					</div>
-		
-					<MenuGroup icon={iconMoreHoriz}>
-						<MenuItems>
+						<div class="gdpsName">
+							<h1>GreenCatsServer</h1>
+							<h3 on:click={() => goto("/profile/Sa1ntSosetHui")}>Sa1ntSosetHui</h3>
+							
+							<TagsGroup size="small">
+								<Tag icon={iconStar} color="gold" label="Recommended" />
+								<Tag label="2.2" />
+								<Tag label="GCS" />
+								<Tag label="Femboys" />
+								<Tag label="Furi" />
+							</TagsGroup>
+						</div>
+			
+						<MenuGroup icon={iconMoreHoriz}>
 							<Menu onClick={() => goto("/gdps/GreenCatsServer/settings")} icon={iconEdit} label="Edit" />
 							<Menu onClick={() => {}} icon={iconLink} label="Copy link" />
 							<Menu onClick={() => {}} icon={iconFlag} label="Report" />
-						</MenuItems>
-					</MenuGroup>
+						</MenuGroup>
+					</div>
+					
+					<div class="gdpsStats">
+						<TagsGroup>
+							<Tag icon={iconThumbUp} label="17" onClick={() => {}} />
+							<Tag icon={iconThumbDown} label="67" color="primary" onClick={() => {}} />
+							<Tag icon={iconFavorite} label="30" onClick={() => {}} />
+							<Tag icon={iconComment} label="2" onClick={() => {}} />
+						</TagsGroup>
+						<TagsGroup>
+							<Tag icon={iconVisibility} label="950" />
+							<Tag icon={iconHistory} label="6 y. ago" />
+						</TagsGroup>
+					</div>
 				</div>
 				
-				<div class="gdpsStats">
+				<div class="gdpsCard connectedElement">
+					<h2>Download GDPS</h2>
 					<TagsGroup>
-						<Tag icon={iconThumbUp} label="17" onClick={() => {}} />
-						<Tag icon={iconThumbDown} label="67" color="primary" onClick={() => {}} />
-						<Tag icon={iconFavorite} label="30" onClick={() => {}} />
-						<Tag icon={iconComment} label="2" onClick={() => {}} />
+						<Button target="_blank" rel="noopener" href="https://gcs.skin" title="PC">
+							<Icon icon={iconDesktopWindows} /> PC
+						</Button>
+						<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Android">
+							<Icon icon={iconAndroid} /> Android
+						</Button>
+						<Button target="_blank" rel="noopener" href="https://gcs.skin" title="macOS">
+							<Icon icon={iconDesktopMac} /> macOS
+						</Button>
+						<Button target="_blank" rel="noopener" href="https://gcs.skin" title="iOS">
+							<Icon icon={iconIos} /> iOS
+						</Button>
 					</TagsGroup>
+					
+					<h2>Socials</h2>
 					<TagsGroup>
-						<Tag icon={iconVisibility} label="950" />
-						<Tag icon={iconHistory} label="6 y. ago" />
+						<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Discord">
+							<svelte:component this={iconDiscord} /> Discord
+						</Button>
+						<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Telegram">
+							<svelte:component this={iconTelegram} /> Telegram
+						</Button>
+						<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Website">
+							<Icon icon={iconLink} /> Website
+						</Button>
 					</TagsGroup>
 				</div>
-			</div>
-			
-			<div class="gdpsCard">
-				<h2>Download GDPS</h2>
-				<TagsGroup>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="PC">
-						<Icon icon={iconDesktopWindows} /> PC
-					</Button>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Android">
-						<Icon icon={iconAndroid} /> Android
-					</Button>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="macOS">
-						<Icon icon={iconDesktopMac} /> macOS
-					</Button>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="iOS">
-						<Icon icon={iconIos} /> iOS
-					</Button>
-				</TagsGroup>
 				
-				<h2>Socials</h2>
-				<TagsGroup>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Discord">
-						<svelte:component this={iconDiscord} /> Discord
-					</Button>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Telegram">
-						<svelte:component this={iconTelegram} /> Telegram
-					</Button>
-					<Button target="_blank" rel="noopener" href="https://gcs.skin" title="Website">
-						<Icon icon={iconLink} /> Website
-					</Button>
-				</TagsGroup>
-			</div>
-			
-			<div class="gdpsCard">
-				<h2>Trailer</h2>
-				<iframe class="gdpsTrailer" src="https://www.youtube.com/embed/w8IIW2Bu_1A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-			</div>
+				<div class="gdpsCard connectedElement">
+					<h2>Trailer</h2>
+					<iframe class="gdpsTrailer" src="https://www.youtube.com/embed/w8IIW2Bu_1A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				</div>
+			</ConnectedElements>
 		</div>
 		
 		<div class="gdpsInfo">
@@ -302,7 +302,6 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 		flex-direction: column;
 		
 		background: var(--m3c-surface-container-highest);
-		border-radius: var(--m3-shape-large);
 		
 		width: 100%;
 		height: max-content;
@@ -312,21 +311,14 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 		gap: 10px;
 	}
 	
-	.gdpsCard.gdpsDescription {
+	:global .gdpsCard:not(.connectedElement) {
 		border-radius: var(--m3-shape-extra-large);
+	}
+	
+	.gdpsCard.gdpsDescription {
 		color: var(--m3c-on-secondary-container);
 		
 		gap: 5px;
-	}
-	
-	.gdpsCard:not(.gdpsDescription):nth-of-type(1) {
-		border-top-left-radius: var(--m3-shape-extra-large);
-		border-top-right-radius: var(--m3-shape-extra-large);
-	}
-	
-	.gdpsCard:not(.gdpsDescription):nth-last-of-type(1) {
-		border-bottom-left-radius: var(--m3-shape-extra-large);
-		border-bottom-right-radius: var(--m3-shape-extra-large);
 	}
 	
 	.gdpsTitle {

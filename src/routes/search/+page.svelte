@@ -10,7 +10,7 @@
 	import iconRocketLaunchOutline from "@ktibow/iconset-material-symbols/rocket-launch-outline-rounded";
 	import iconSchedule from "@ktibow/iconset-material-symbols/schedule-rounded";
 	import iconScheduleOutline from "@ktibow/iconset-material-symbols/schedule-outline-rounded";
-	import iconQuestionMark from "@ktibow/iconset-material-symbols/question-mark-rounded";
+	import iconSearchOff from "@ktibow/iconset-material-symbols/search-off-rounded";
 	
 	var selectedTab = $state("recommendations");
 	
@@ -76,7 +76,7 @@
 					{/each}
 				{:else}
 					<div class="errorDiv">
-						<h1><Icon icon={iconQuestionMark} /></h1>
+						<h1><Icon icon={iconSearchOff} /></h1>
 						<h2>Nothing found.</h2>
 					</div>
 				{/if}
@@ -154,24 +154,32 @@
 	.errorDiv {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		justify-content: center;
 		
-		background: var(--m3c-surface-container-highest);
 		color: var(--m3c-on-primary-container);
 		
 		padding: 1rem;
-		border-radius: var(--m3-shape-extra-large);
+		gap: 10px;
 		
 		height: max-content;
 	}
 	
 	.errorDiv h1 {
-		text-align: center;
+		display: flex;
+		
+		background: var(--m3c-surface-container-highest);
+		
+		width: max-content;
+		padding: .75rem;
+		border-radius: var(--m3-shape-extra-large);
 	}
 	
 	.errorDiv h2 {
 		margin: 0px;
 		font-size: 30px;
+		
+		font-weight: 500;
 	}
 	
 	h1 {

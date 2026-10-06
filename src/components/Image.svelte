@@ -9,7 +9,7 @@
 
 <object class={[loading, (mainImageLoaded || altImageLoaded ? "loaded" : "")].join(" ")} {title}>
 	<span class="loading">
-		<LoadingIndicator class="loadingIndicator" center={false} size={24} />
+		<LoadingIndicator class="loadingIndicator" center={false} size={48} />
 	</span>
 	
 	<img class={["mainImage", (mainImageLoaded ? "loaded" : "")].join(" ")} src={src} on:load={() => mainImageLoaded = true} />
@@ -49,6 +49,21 @@
 	img.mainImage.loaded,
 	img.altImage.loaded {
 		display: initial;
+		opacity: 1;
+		
+		transition: var(--m3-easing);
+		
+		@starting-style {
+			opacity: 0;
+		}
+	}
+	
+	/*
+		Хардкод. Похуй?
+	*/
+	:global .postGDPSLogo img {
+		padding: 2px;
+		border-radius: 10px;
 	}
 	
 	:global object .loading {

@@ -4,7 +4,7 @@
 	let { icon, label, color, title, onClick } = $props();
 </script>
 
-<div class={["tag", (color != undefined ? color : ""), (onClick != undefined ? "m3-layer clickable" : "")].join(" ")} title={title != undefined ? title : ""} on:click={onClick}>
+<div class={["tag connectedElement", (color != undefined ? color : ""), (onClick != undefined ? "m3-layer clickable" : "")].join(" ")} title={title != undefined ? title : ""} on:click={onClick}>
 	{#if icon != undefined}
 		<Icon icon={icon} />
 	{/if}
@@ -29,9 +29,6 @@
 		
 		background: light-dark(var(--m3c-tertiary-container), var(--m3c-secondary-container));
 		color: light-dark(var(--m3c-on-tertiary-container), var(--m3c-on-secondary-container));
-		
-		--shape: var(--m3-shape-medium);
-		border-radius: var(--shape);
 	}
 	
 	.tag.clickable {
@@ -70,38 +67,15 @@
 		font-weight: 500;
 	}
 	
-	.tag:nth-of-type(1) {
-		border-top-left-radius: var(--m3-shape-large);
-		border-bottom-left-radius: var(--m3-shape-large);
-	}
-	
-	.tag:nth-last-of-type(1) {
-		border-top-right-radius: var(--m3-shape-large);
-		border-bottom-right-radius: var(--m3-shape-large);
-	}
-	
 	:global .small .tag {
 		gap: 3px;
 		
 		font-size: 16px;
 		padding: .15rem .3rem;
-		
-		--shape: var(--m3-shape-small);
-		border-radius: var(--shape);
 	}
 	
 	:global .small .tag span {
 		font-size: 13px;
-	}
-	
-	:global .small .tag:nth-of-type(1) {
-		border-top-left-radius: var(--m3-shape-medium);
-		border-bottom-left-radius: var(--m3-shape-medium);
-	}
-	
-	:global .small .tag:nth-last-of-type(1) {
-		border-top-right-radius: var(--m3-shape-medium);
-		border-bottom-right-radius: var(--m3-shape-medium);
 	}
 	
 	:global .small .tag.clickable {

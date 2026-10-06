@@ -7,6 +7,7 @@
 	import TagsGroup from "../../../components/TagsGroup.svelte";
 	import Tag from "../../../components/Tag.svelte";
 	import Post from "../../../components/Post.svelte";
+	import ConnectedElements from "../../../components/ConnectedElements.svelte";
 	
 	import iconQuestionMark from "@ktibow/iconset-material-symbols/question-mark-rounded";
 	import iconYouTube from "../../../lib/assets/logo_yt.svelte";
@@ -65,7 +66,7 @@
 			<p>GDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurry</p>
 			
 			<TagsGroup>
-				<Tag icon={iconSchedule} title="Joined MRKT at" label="30.05.2026" />
+				<Tag icon={iconSchedule} title="Joined MRKT" label="30.05.2026" />
 				<Tag icon={iconVisibility} title="Last seen online" label="6 minutes ago" />
 			</TagsGroup>
 			
@@ -104,15 +105,19 @@
 		<div class="profileInfo">
 			<h3>Owned</h3>
 			<div class="profileGDPSs">
-				<GDPSSmall />
-				<GDPSSmall />
-				<GDPSSmall />
+				<ConnectedElements size="large-increased">
+					<GDPSSmall />
+					<GDPSSmall />
+					<GDPSSmall />
+				</ConnectedElements>
 			</div>
 			
 			<h3>Favorites</h3>
 			<div class="profileGDPSs">
-				<GDPSSmall />
-				<GDPSSmall />
+				<ConnectedElements size="large-increased">
+					<GDPSSmall />
+					<GDPSSmall />
+				</ConnectedElements>
 			</div>
 		</div>
 	</div>
@@ -146,7 +151,7 @@
 		flex-direction: column;
 		
 		background: var(--m3c-surface-container-highest);
-		border-radius: var(--m3-shape-large);
+		border-radius: var(--m3-shape-extra-large);
 		
 		width: 100%;
 		height: max-content;
@@ -174,16 +179,6 @@
 		top: -30px;
 		
 		align-self: initial;
-	}
-	
-	.profileInfo:nth-of-type(1) {
-		border-top-left-radius: var(--m3-shape-extra-large);
-		border-top-right-radius: var(--m3-shape-extra-large);
-	}
-	
-	.profileInfo:nth-last-of-type(1) {
-		border-bottom-left-radius: var(--m3-shape-extra-large);
-		border-bottom-right-radius: var(--m3-shape-extra-large);
 	}
 	
 	.profilePosts {

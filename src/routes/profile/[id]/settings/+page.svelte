@@ -7,6 +7,7 @@
 	import TagsGroup from "../../../../components/TagsGroup.svelte";
 	import Tag from "../../../../components/Tag.svelte";
 	import DialogInfo from "../../../../components/DialogInfo.svelte";
+	import ConnectedElements from "../../../../components/ConnectedElements.svelte";
 	
 	import iconQuestionMark from "@ktibow/iconset-material-symbols/question-mark-rounded";
 	import iconYouTube from "../../../../lib/assets/logo_yt.svelte";
@@ -116,43 +117,47 @@
 		<div class="profileInfo">
 			<h4>Information</h4>
 			
-			<Setting icon={iconPerson} title="Username" value="Sa1ntSosetHui">
-				<Button iconType="full">
-					<Icon icon={iconEdit} />
-				</Button>
-			</Setting>
-			
-			<Setting icon={iconComment} title="Description" value="You can use Markdown in descriptions">
-				<Button iconType="full">
-					<Icon icon={iconEdit} />
-				</Button>
-			</Setting>
-			
-			<Setting icon={iconEmail} title="Email address" value="m**********8@g***l.com">
-				<Button variant="tonal" iconType="full" onclick={() => dialogEmail = !dialogEmail}>
-					<Icon icon={iconInfo} />
-					<DialogInfo title="Email address" description={["This is the email of the Discord account you use to login to MRKT.", "It will automatically sync on every login."]} button="OK" open={dialogEmail} />
-				</Button>
-			</Setting>
-			
-			<Setting icon={iconDiscord} title="Discord ID" value="297295491417505793">
-				<Button variant="tonal" iconType="full" onclick={() => dialogDiscordID = !dialogDiscordID}>
-					<Icon icon={iconInfo} />
-					<DialogInfo title="Discord ID" description="This is the ID of the Discord account you use to login to MRKT." button="OK" open={dialogDiscordID} />
-				</Button>
-			</Setting>
+			<ConnectedElements size="large-increased">
+				<Setting icon={iconPerson} title="Username" value="Sa1ntSosetHui">
+					<Button iconType="full">
+						<Icon icon={iconEdit} />
+					</Button>
+				</Setting>
+				
+				<Setting icon={iconComment} title="Description" value="You can use Markdown in descriptions">
+					<Button iconType="full">
+						<Icon icon={iconEdit} />
+					</Button>
+				</Setting>
+				
+				<Setting icon={iconEmail} title="Email address" value="m**********8@g***l.com">
+					<Button variant="tonal" iconType="full" onclick={() => dialogEmail = !dialogEmail}>
+						<Icon icon={iconInfo} />
+						<DialogInfo title="Email address" description={["This is the email of the Discord account you use to login to MRKT.", "It will automatically sync on every login."]} button="OK" open={dialogEmail} />
+					</Button>
+				</Setting>
+				
+				<Setting icon={iconDiscord} title="Discord ID" value="297295491417505793">
+					<Button variant="tonal" iconType="full" onclick={() => dialogDiscordID = !dialogDiscordID}>
+						<Icon icon={iconInfo} />
+						<DialogInfo title="Discord ID" description="This is the ID of the Discord account you use to login to MRKT." button="OK" open={dialogDiscordID} />
+					</Button>
+				</Setting>
+			</ConnectedElements>
 		</div>
 		
 		<div class="profileInfo">
 			<h4>Socials</h4>
 			
-			{#each socialsArray as social}
-				<Setting icon={social.icon} title={social.title} value={social.value.length ? social.value : "Unset"}>
-					<Button iconType="full">
-						<Icon icon={iconEdit} />
-					</Button>
-				</Setting>
-			{/each}
+			<ConnectedElements size="large-increased">
+				{#each socialsArray as social}
+					<Setting icon={social.icon} title={social.title} value={social.value.length ? social.value : "Unset"}>
+						<Button iconType="full">
+							<Icon icon={iconEdit} />
+						</Button>
+					</Setting>
+				{/each}
+			</ConnectedElements>
 		</div>
 	</div>
 </div>
@@ -172,7 +177,7 @@
 		flex-direction: column;
 		
 		background: var(--m3c-surface-container-highest);
-		border-radius: var(--m3-shape-large);
+		border-radius: var(--m3-shape-extra-large);
 		
 		width: 100%;
 		height: max-content;
@@ -184,6 +189,8 @@
 	.profileSettings .profileInfo {
 		padding: 0px;
 		background: transparent;
+		
+		gap: 3px;
 	}
 	
 	.profileUser {
@@ -205,16 +212,6 @@
 		top: -30px;
 		
 		align-self: initial;
-	}
-	
-	.profileInfo:nth-of-type(1) {
-		border-top-left-radius: var(--m3-shape-extra-large);
-		border-top-right-radius: var(--m3-shape-extra-large);
-	}
-	
-	.profileInfo:nth-last-of-type(1) {
-		border-bottom-left-radius: var(--m3-shape-extra-large);
-		border-bottom-right-radius: var(--m3-shape-extra-large);
 	}
 	
 	.profileSettings {

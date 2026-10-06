@@ -2,6 +2,9 @@
 	import TitleLogo from "../lib/assets/title.svg";
 </script>
 
+<svelte:head>
+	<title>MRKT — Yet another GDPS marketplace.</title>
+</svelte:head>
 <img class="titleLogo" src={TitleLogo} />
 
 <style>

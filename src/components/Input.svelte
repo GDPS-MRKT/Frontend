@@ -8,11 +8,13 @@
 </script>
 
 <div class="searchInputElement">
-	<span class="inputLogo">
-		<Image src={image} title="Logo" />
-	</span>
+	{#if image != undefined}
+		<span class="inputLogo">
+			<Image src={image} title="Logo" />
+		</span>
+	{/if}
 	
-	<input type="text" placeholder={label} on:input={(event) => onInput(event.target.value)} />
+	<textarea placeholder={label} on:input={(event) => onInput(event.target.value)} />
 	
 	<div type="button" class="m3-layer sendButton">
 		<Icon icon={iconSend} />
@@ -22,7 +24,7 @@
 <style>
 	.searchInputElement {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		justify-content: flex-end;
 		
 		width: 100%;
@@ -67,11 +69,11 @@
 		--shape: var(--m3-shape-small);
 	}
 	
-	input {
+	textarea {
 		font-size: 1rem;
 		
-		background: none;
 		border: none;
+		resize: none;
 		
 		padding: .5rem;
 		
@@ -84,9 +86,11 @@
 		color: var(--m3c-on-primary-container);
 		
 		width: 100%;
+		
+		field-sizing: content;
 	}
 	
-	input:focus {
+	textarea:focus {
 		outline: none;
 	}
 	

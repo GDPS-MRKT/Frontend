@@ -6,7 +6,7 @@
 	let { icon, title, value, children } = $props();
 </script>
 
-<div class="setting">
+<div class="setting connectedElement">
 	<div class="settingTitle">
 		<span class="settingIcon">
 			{#if typeof icon != "function"}
@@ -37,24 +37,12 @@
 		background: var(--m3c-surface-container-highest);
 		
 		padding: .75rem;
-		--shape: var(--m3-shape-small);
-		border-radius: var(--shape);
 		
 		transition:
 			border-radius var(--m3-easing-fast-spatial),
 			box-shadow var(--m3-easing-fast),
 			background-color var(--m3-easing-fast),
 			color var(--m3-easing-fast);
-	}
-	
-	.setting:nth-of-type(1) {
-		border-top-left-radius: var(--m3-shape-large-increased);
-		border-top-right-radius: var(--m3-shape-large-increased);
-	}
-	
-	.setting:nth-last-of-type(1) {
-		border-bottom-left-radius: var(--m3-shape-large-increased);
-		border-bottom-right-radius: var(--m3-shape-large-increased);
 	}
 	
 	.settingTitle {
@@ -65,13 +53,13 @@
 	}
 	
 	.settingTitle h1 {
-		font-size: 1.2rem;
+		font-size: 14px;
 		color: var(--m3c-on-primary-container);
 	}
 	
 	.settingTitle h3 {
 		font-weight: 400;
-		font-size: 14px;
+		font-size: 1rem;
 		margin: 0px;
 		
 		color: var(--m3c-on-secondary-container);

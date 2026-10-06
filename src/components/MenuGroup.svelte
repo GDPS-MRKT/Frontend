@@ -1,5 +1,7 @@
 <script>
 	import { Icon, Button } from "m3-svelte";
+	import MenuItems from './MenuItems.svelte';
+	import ConnectedElements from './ConnectedElements.svelte';
 	
 	let { children, icon } = $props();
 	
@@ -11,7 +13,11 @@
 		<Icon {icon} />
 	</Button>
 	
-	{@render children()}
+	<MenuItems>
+		<ConnectedElements size="large">
+			{@render children()}
+		</ConnectedElements>
+	</MenuItems>
 </div>
 
 <style>

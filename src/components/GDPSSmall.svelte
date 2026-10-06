@@ -4,7 +4,7 @@
 	import Image from "./Image.svelte";
 </script>
 
-<div class="m3-layer gdpsSmall" on:click={() => goto("/gdps/GreenCatsServer")}>
+<div class="m3-layer gdpsSmall clickable connectedElement" on:click={() => goto("/gdps/GreenCatsServer")}>
 	<div class="gdpsTitle">
 		<span class="smallGDPSlogo">
 			<Image src="https://images.gcs.skin/gcs/logo.png" title="GDPS logo" />
@@ -22,8 +22,6 @@
 		background: var(--m3c-secondary-container);
 		
 		padding: .75rem;
-		--shape: var(--m3-shape-medium);
-		border-radius: var(--shape);
 		
 		cursor: pointer;
 		
@@ -38,16 +36,6 @@
 		--shape: var(--m3-shape-small);
 	}
 	
-	.gdpsSmall:nth-of-type(1) {
-		border-top-left-radius: var(--m3-shape-large-increased);
-		border-top-right-radius: var(--m3-shape-large-increased);
-	}
-	
-	.gdpsSmall:nth-last-of-type(1) {
-		border-bottom-left-radius: var(--m3-shape-large-increased);
-		border-bottom-right-radius: var(--m3-shape-large-increased);
-	}
-	
 	.gdpsTitle {
 		display: flex;
 		align-items: center;
@@ -58,6 +46,8 @@
 	.gdpsTitle h1 {
 		font-size: 1.2rem;
 		color: var(--m3c-on-primary-container);
+		
+		pointer-events: none;
 	}
 	
 	.gdpsTitle h3 {
@@ -66,6 +56,8 @@
 		margin: 0px;
 		
 		color: var(--m3c-on-secondary-container);
+		
+		pointer-events: none;
 	}
 	
 	.gdpsTitle .smallGDPSlogo {
@@ -78,5 +70,7 @@
 		overflow: hidden;
 		
 		aspect-ratio: 1/1;
+		
+		pointer-events: none;
 	}
 </style>

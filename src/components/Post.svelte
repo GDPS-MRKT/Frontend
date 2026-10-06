@@ -5,8 +5,10 @@
 	import TagsGroup from "./TagsGroup.svelte";
 	import Tag from "./Tag.svelte";
 	import MenuGroup from "./MenuGroup.svelte";
-	import MenuItems from "./MenuItems.svelte";
 	import Menu from "./Menu.svelte";
+	import Comment from "./Comment.svelte";
+	import Input from "./Input.svelte";
+	import ConnectedElements from "./ConnectedElements.svelte";
 	
 	import iconFavorite from "@ktibow/iconset-material-symbols/favorite-rounded";
 	import iconComment from "@ktibow/iconset-material-symbols/comment-rounded";
@@ -18,51 +20,61 @@
 	let { gdpsID } = $props();
 </script>
 
-<div class="post containsMenu">
-	<div class="postTitle">
-		<span class="postLogos">
-			<span class="postPFP">
-				<Image src="https://images.gcs.skin/gcs/logo.png" title="GDPS logo" />
-			</span>
-			
-			{#if gdpsID != undefined}
-				<span class="postGDPSLogo">
-					<Image src="https://images.gcs.skin/gcs/logo.png" title="GDPS logo" />
+<div class="postElements">
+	<ConnectedElements>
+		<div class="post containsMenu connectedElement">
+			<div class="postTitle">
+				<span class="postLogos">
+					<span class="postPFP">
+						<Image src="https://images.gcs.skin/gcs/logo.png" title="GDPS logo" />
+					</span>
+					
+					{#if gdpsID != undefined}
+						<span class="postGDPSLogo">
+							<Image src="https://images.gcs.skin/gcs/logo.png" title="GDPS logo" />
+						</span>
+					{/if}
 				</span>
-			{/if}
-		</span>
-		
-		<div class="postName">
-			<h1 on:click={() => goto("/profile/Sa1ntSosetHui")}>Sa1ntSosetHui</h1>
+				
+				<div class="postName">
+					<h1 on:click={() => goto("/profile/Sa1ntSosetHui")}>Sa1ntSosetHui</h1>
+					
+					<TagsGroup size="small">
+						<Tag label="2 weeks ago" />
+						{#if gdpsID != undefined}
+							<Tag label="For GreenCatsServer" onClick={() => goto("/gdps/Sa1ntSosetHui")} />
+						{/if}
+					</TagsGroup>
+				</div>
+				
+				<MenuGroup icon={iconMoreHoriz}>
+					<Menu onClick={() => {}} icon={iconLink} label="Copy link" />
+					<Menu onClick={() => {}} icon={iconFlag} label="Report" />
+				</MenuGroup>
+			</div>
 			
-			<TagsGroup size="small">
-				{#if gdpsID != undefined}
-					<Tag label="For GreenCatsServer" onClick={() => goto("/gdps/Sa1ntSosetHui")} />
-				{/if}
-				<Tag label="2 weeks ago" />
-			</TagsGroup>
+			<p>GDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurry</p>
+			
+			<div class="postButtons">
+				<TagsGroup>
+					<Tag icon={iconFavorite} label="10" color={gdpsID != undefined ? "primary" : null} onClick={() => console.log(123)} />
+					<Tag icon={iconComment} label="2" onClick={() => console.log(123)} />
+				</TagsGroup>
+				
+				<TagsGroup>
+					<Tag icon={iconVisibility} label="42" />
+				</TagsGroup>
+			</div>
 		</div>
 		
-		<MenuGroup icon={iconMoreHoriz}>
-			<MenuItems>
-				<Menu onClick={() => {}} icon={iconLink} label="Copy link" />
-				<Menu onClick={() => {}} icon={iconFlag} label="Report" />
-			</MenuItems>
-		</MenuGroup>
-	</div>
-	
-	<p>GDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurry</p>
-	
-	<div class="postButtons">
-		<TagsGroup>
-			<Tag icon={iconFavorite} label="10" color={gdpsID != undefined ? "primary" : null} onClick={() => console.log(123)} />
-			<Tag icon={iconComment} label="2" onClick={() => console.log(123)} />
-		</TagsGroup>
+		{#if gdpsID != undefined}
+			<Comment />
+		{/if}
 		
-		<TagsGroup>
-			<Tag icon={iconVisibility} label="42" />
-		</TagsGroup>
-	</div>
+		<div class="inputField connectedElement">
+			<Input label="Write a comment..." />
+		</div>
+	</ConnectedElements>
 </div>
 
 <style>
@@ -74,19 +86,8 @@
 		
 		width: 100%;
 		padding: 1rem;
-		border-radius: var(--m3-shape-large);
 		
 		gap: 10px;
-	}
-	
-	.post:nth-of-type(1) {
-		border-top-left-radius: var(--m3-shape-extra-large);
-		border-top-right-radius: var(--m3-shape-extra-large);
-	}
-	
-	.post:nth-last-of-type(1) {
-		border-bottom-left-radius: var(--m3-shape-extra-large);
-		border-bottom-right-radius: var(--m3-shape-extra-large);
 	}
 	
 	h1 {
@@ -144,10 +145,27 @@
 		
 		bottom: -3px;
 		right: -3px;
-		border: 3px solid var(--m3c-surface-container-highest);
 		overflow: hidden;
 		
 		aspect-ratio: 1/1;
+	}
+	
+	/*
+		Сквозь border у самого элемента видно элементы сзади
+	*/
+	.postGDPSLogo::after {
+		content: '';
+		
+		position: absolute;
+		top: 0px;
+		
+		width: 100%;
+		height: 100%;
+		
+		border: 3px solid var(--m3c-surface-container-highest);
+		border-radius: 10px;
+		
+		z-index: 2;
 	}
 	
 	.postTitle {
@@ -167,5 +185,27 @@
 		justify-content: space-between;
 		
 		width: 100%;
+	}
+	
+	.inputField {
+		display: flex;
+		flex-direction: column;
+		
+		background: var(--m3c-surface-container-highest);
+		
+		width: 100%;
+		padding: .75rem;
+		
+		gap: 10px;
+	}
+	
+	.postElements {
+		display: flex;
+		flex-direction: column;
+		
+		gap: 3px;
+		
+		width: 0px;
+		min-width: 100%;
 	}
 </style>

@@ -1,9 +1,12 @@
 <script>
-	let { children, size } = $props();
+	let { children, wrap, size } = $props();
+	import ConnectedElements from './ConnectedElements.svelte';
 </script>
 
-<div class={["tagsGroup", (size != undefined ? size : "")].join(" ")} role="region">
-	{@render children()}
+<div class={["tagsGroup", (wrap != undefined ? wrap : ""), (size != undefined ? size : "")].join(" ")} role="region">
+	<ConnectedElements side="horisontal" size={(size == "small" ? "medium" : "large")}>
+		{@render children()}
+	</ConnectedElements>
 </div>
 
 <style>
@@ -19,6 +22,10 @@
 	
 	:global .tagsGroup.small {
 		gap: 1px;
+	}
+	
+	:global .tagsGroup.nowrap {
+		flex-wrap: nowrap;
 	}
 
 	.tagsGroup::-webkit-scrollbar {

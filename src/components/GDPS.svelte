@@ -220,18 +220,8 @@
 		color: var(--m3c-on-secondary-container);
 		padding: .5rem;
 		
-		border-radius: var(--m3-shape-small);
+		border-radius: var(--m3-shape-large);
 		
 		height: 40px;
-	}
-	
-	.gdpsStats h2:nth-of-type(1) {
-		border-top-left-radius: var(--m3-shape-large);
-		border-bottom-left-radius: var(--m3-shape-large);
-	}
-	
-	.gdpsStats h2:nth-last-of-type(1) {
-		border-top-right-radius: var(--m3-shape-large);
-		border-bottom-right-radius: var(--m3-shape-large);
 	}
 </style>
