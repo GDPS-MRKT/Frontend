@@ -7,7 +7,6 @@
 	import Setting from "../../../../components/Setting.svelte";
 	import TagsGroup from "../../../../components/TagsGroup.svelte";
 	import Tag from "../../../../components/Tag.svelte";
-	import DialogInfo from "../../../../components/DialogInfo.svelte";
 	import ConnectedElements from "../../../../components/ConnectedElements.svelte";
 	
 	import iconVisibility from "@ktibow/iconset-material-symbols/visibility-rounded";
@@ -38,19 +37,16 @@
 	const userID = params.id;
 	
 	let downloadsArray = $state([
-		{title: "PC", value: "https://gcs.skin/pc", icon: iconDesktopWindows},
-		{title: "Android", value: "https://gcs.skin/android", icon: iconAndroid},
-		{title: "macOS", value: "https://gcs.skin/macos", icon: iconDesktopMac},
-		{title: "iOS", value: "https://gcs.skin/ios", icon: iconIos},
+		{id: "pc", title: "PC", description: ["Download link for Windows."], value: "https://gcs.skin/pc", icon: iconDesktopWindows},
+		{id: "android", title: "Android", description: ["Download link for Android."], value: "https://gcs.skin/android", icon: iconAndroid},
+		{id: "macos", title: "macOS", description: ["Download link for macOS."], value: "https://gcs.skin/macos", icon: iconDesktopMac},
+		{id: "ios", title: "iOS", description: ["Download link for iOS."], value: "https://gcs.skin/ios", icon: iconIos},
 	]);
 	let socialsArray = $state([
-		{title: "Discord", value: "sa1ntsosethui", icon: iconDiscord},
-		{title: "Telegram", value: "MegaSa1nt", icon: iconTelegram},
-		{title: "Website", value: "https://socials.gcs.skin", icon: iconLink},
+		{id: "discord", title: "Discord", description: ["Link to GDPS Discord server."], value: "sa1ntsosethui", icon: iconDiscord},
+		{id: "telegram", title: "Telegram", description: ["Link to GDPS Telegram channel."], value: "MegaSa1nt", icon: iconTelegram},
+		{id: "website", title: "Website", description: ["Link to GDPS website, for example, dashboard or main page."], value: "https://socials.gcs.skin", icon: iconLink},
 	]);
-	
-	let dialogEmail = $state(false);
-	let dialogDiscordID = $state(false);
 
 	let gdpsInfoStick = $state("bottom");
 	let elementStick = () => {
@@ -60,6 +56,8 @@
 		let gdpsInfoStickElement = document.getElementById("gdpsInfoStickElement");
 		elementStick();
 	});
+	
+	const gdpsDescription = `## ХЕШТЕГИ GreenCatsServer \\#ФурриВологды #FurryOfVologda #ФурриТожеЛюди #LetFurriesLive #Mrow #PlayGreenCatsServer #ImFurryGang #OMORI #GREEN #11111111 #AIBot #МальчикЕщёНеВырос #FurrySa1nt #MaidSa1nt #FurryMaid #ЯЛюблюПШП #PHPIsMyLife #HatKidIsMyFav #Maksidem #GCS #GD2.2 #Hashtag #7-8 #КакойЖеЯЕбучий #Эщкере #:3 #FemboyGDPS #FurryGDPS #42 #goglepixel #комачячи #НовостиКаждыйЧас #коленвал #привет #не #НовыйСленг #ПиксельБаттл #ВоСлавуГКС #ОВеликийGreenCatsServer #Топ1!!!!!! #Boykisser #Niko #OneShot #M336 #Cold #ЪЭ #AntiAmogusPolicy #ЁбаныеАмогусы #ФУРЭ #ФУРРИ #ФУРРИ #FURRY #F*RRY #FURRY #FURE #ФУРРЭ #МЯУМЯУУМЯУМЯУМУМЯМУМЯМ #FURRYPLACE #FURRYISGETTINGDISCRIMINATEDONGDPSHUB!!!!!!!!!!!!!!!!! #FURRY #FURRYFURRYFURFYURYFUYFURYFURYUYFUYRFURYFURYFRUYFRU #FURI #FURRI #FURRE #кэбокс #кэбокс #кэбокс #кэбокс #кэбокс #мармеладка #уточка #ФУРРИУТОЧКАРЕАЛЬНО #ФурриФембоиТут #ihatejuchil #UnmuteGrechka #GRECHKA #Outcore #PLEASELUMI #SFWServer #NoP\\*rnAllowed!!! #NoJ\\*b #NoEmpl\\*yment #NoRel\\*tionships #NoSt\\*dying #NoA\\*\\*le #PIXELGANG #GOGLEPIXELGANG #BoykisserXGirlkisser #EMOTIONS #ФурэМилашкэ #АНТИХАЙП #ANTIHYPE #ХАНЗАМАЙ #OBLADAUN #ГИМН #ГимнGreenCatsServerСлушатьВсемИКаждомуИЕщёЛайкПоставитьИНаписатьПоложительныйКомментарийХорошийСлушатьВсемGreenCatsServerаКотикГорничнойБытьНеПротивХорошийГимн`;
 </script>
 
 <Header title="Sa1ntSosetHui's settings" />
@@ -139,35 +137,45 @@
 			</ConnectedElements>
 		</div>
 		
-		<div class="gdpsSettings">
+		<form class="gdpsSettings" name="gdps-settings" method="post" action=".">
 			<div class="gdpsInfo">
 				<h4>Information</h4>
 				
 				<ConnectedElements size="large-increased">
-					<Setting icon={iconEditSquare} title="Name" value="GreenCatsServer">
-						<Button iconType="full">
-							<Icon icon={iconEdit} />
-						</Button>
-					</Setting>
+					<Setting
+						id="name"
+						icon={iconEditSquare}
+						title="Name"
+						value="GreenCatsServer"
+						type="input"
+						description={["Name for your GDPS."]}
+					/>
 					
-					<Setting icon={iconComment} title="Description" value="You can use Markdown in descriptions">
-						<Button iconType="full">
-							<Icon icon={iconEdit} />
-						</Button>
-					</Setting>
+					<Setting
+						id="description"
+						icon={iconComment}
+						title="Description"
+						value={gdpsDescription}
+						type="info"
+						description={["Description of your GDPS.", "You can use Markdown in descriptions."]}
+					/>
 					
-					<Setting icon={iconYouTube} title="Trailer" value="w8IIW2Bu_1A">
-						<Button iconType="full">
-							<Icon icon={iconEdit} />
-						</Button>
-					</Setting>
+					<Setting
+						id="trailer"
+						icon={iconYouTube}
+						title="Trailer"
+						value="w8IIW2Bu_1A"
+						type="input"
+						description={["YouTube video trailer of your GDPS.", "For example, if your YouTube video link is https://www.youtube.com/watch?v=w8IIW2Bu_1A, then put w8IIW2Bu_1A."]}
+					/>
 					
-					<Setting icon={iconInfo} title="Status" value="Pending">
-						<Button variant="tonal" iconType="full" onclick={() => dialogDiscordID = !dialogDiscordID}>
-							<Icon icon={iconInfo} />
-							<DialogInfo title="Status" description={["This GDPS is currently unlisted.", "It will become public once it passes the verification process."]} button="OK" open={dialogDiscordID} />
-						</Button>
-					</Setting>
+					<Setting
+						icon={iconInfo}
+						title="Status"
+						value="Pending"
+						type="info"
+						description={["This GDPS is currently unlisted.", "It will become public once it passes the verification process."]}
+					/>
 				</ConnectedElements>
 			</div>
 			
@@ -175,13 +183,16 @@
 				<h4>Download links</h4>
 				
 				<ConnectedElements size="large-increased">
-				{#each downloadsArray as download}
-					<Setting icon={download.icon} title={download.title} value={download.value.length ? download.value : "Unset"}>
-						<Button iconType="full">
-							<Icon icon={iconEdit} />
-						</Button>
-					</Setting>
-				{/each}
+					{#each downloadsArray as download}
+						<Setting
+							id={download.id}
+							icon={download.icon}
+							title={download.title}
+							value={download.value}
+							type="input"
+							description={download.description}
+						/>
+					{/each}
 				</ConnectedElements>
 			</div>
 			
@@ -189,16 +200,19 @@
 				<h4>Socials</h4>
 			
 				<ConnectedElements size="large-increased">
-				{#each socialsArray as social}
-					<Setting icon={social.icon} title={social.title} value={social.value.length ? social.value : "Unset"}>
-						<Button iconType="full">
-							<Icon icon={iconEdit} />
-						</Button>
-					</Setting>
-				{/each}
+					{#each socialsArray as social}
+						<Setting
+							id={social.id}
+							icon={social.icon}
+							title={social.title}
+							value={social.value}
+							type="input"
+							description={social.description}
+						/>
+					{/each}
 				</ConnectedElements>
 			</div>
-		</div>
+		</form>
 	</div>
 </div>
 

@@ -62,6 +62,11 @@
 		color: var(--m3c-on-primary);
 	}
 	
+	.tag.text {
+		background: transparent;
+		color: var(--m3c-primary);
+	}
+	
 	:global .tag span {
 		font-size: 0.875rem;
 		font-weight: 500;

@@ -6,7 +6,6 @@
 	import Setting from "../../../../components/Setting.svelte";
 	import TagsGroup from "../../../../components/TagsGroup.svelte";
 	import Tag from "../../../../components/Tag.svelte";
-	import DialogInfo from "../../../../components/DialogInfo.svelte";
 	import ConnectedElements from "../../../../components/ConnectedElements.svelte";
 	
 	import iconQuestionMark from "@ktibow/iconset-material-symbols/question-mark-rounded";
@@ -30,19 +29,16 @@
 	const userID = params.id;
 	
 	let socialsArray = $state([
-		{title: "YouTube", value: "@Sa1ntSosetHui", icon: iconYouTube},
-		{title: "GitHub", value: "MegaSa1nt", icon: iconGitHub},
-		{title: "X", value: "", icon: iconX},
-		{title: "Bluesky", value: "", icon: iconBluesky},
-		{title: "Instagram", value: "", icon: iconInstagram},
-		{title: "TikTok", value: "megasa1nt", icon: iconTikTok},
-		{title: "Discord", value: "sa1ntsosethui", icon: iconDiscord},
-		{title: "Telegram", value: "MegaSa1nt", icon: iconTelegram},
-		{title: "Website", value: "https://socials.gcs.skin", icon: iconLink},
+		{id: "youtube", title: "YouTube", description: ["Your YouTube channel handle."], value: "@Sa1ntSosetHui", icon: iconYouTube},
+		{id: "github", title: "GitHub", description: ["Your GitHub account username."], value: "MegaSa1nt", icon: iconGitHub},
+		{id: "twitter", title: "X", description: ["Your X username."], value: "", icon: iconX},
+		{id: "bluesky", title: "Bluesky", description: ["Your Bluesky username."], value: "", icon: iconBluesky},
+		{id: "instagram", title: "Instagram", description: ["Your Instagram username."], value: "", icon: iconInstagram},
+		{id: "tiktok", title: "TikTok", description: ["Your TikTok username."], value: "megasa1nt", icon: iconTikTok},
+		{id: "discord", title: "Discord", description: ["Your Discord username."], value: "sa1ntsosethui", icon: iconDiscord},
+		{id: "telegram", title: "Telegram", description: ["Your Telegram username."], value: "MegaSa1nt", icon: iconTelegram},
+		{id: "website", title: "Website", description: ["Link to your website."], value: "https://socials.gcs.skin", icon: iconLink},
 	]);
-	
-	let dialogEmail = $state(false);
-	let dialogDiscordID = $state(false);
 	
 	let profileStick = $state("bottom");
 	let elementStick = () => {
@@ -113,36 +109,42 @@
 		</div>
 	</div>
 	
-	<div class="profileSettings">
+	<form class="profileSettings" name="profile-settings" method="post" action=".">
 		<div class="profileInfo">
 			<h4>Information</h4>
 			
 			<ConnectedElements size="large-increased">
-				<Setting icon={iconPerson} title="Username" value="Sa1ntSosetHui">
-					<Button iconType="full">
-						<Icon icon={iconEdit} />
-					</Button>
-				</Setting>
+				<Setting
+					id="username"
+					icon={iconPerson}
+					title="Username"
+					value="Sa1ntSosetHui"
+					type="input"
+					description={["Your username."]}
+				/>
 				
-				<Setting icon={iconComment} title="Description" value="You can use Markdown in descriptions">
-					<Button iconType="full">
-						<Icon icon={iconEdit} />
-					</Button>
-				</Setting>
+				<Setting
+					id="description"
+					icon={iconComment}
+					title="Description"
+					value="GDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurry"
+					type="info"
+					description={["Description of your profile.", "You can use Markdown in descriptions."]}
+				/>
 				
-				<Setting icon={iconEmail} title="Email address" value="m**********8@g***l.com">
-					<Button variant="tonal" iconType="full" onclick={() => dialogEmail = !dialogEmail}>
-						<Icon icon={iconInfo} />
-						<DialogInfo title="Email address" description={["This is the email of the Discord account you use to login to MRKT.", "It will automatically sync on every login."]} button="OK" open={dialogEmail} />
-					</Button>
-				</Setting>
+				<Setting
+					icon={iconEmail}
+					title="Email address"
+					value="m**********8@g***l.com"
+					description={["This is the email of the Discord account you use to login to MRKT.", "It will automatically sync on every login."]}
+				/>
 				
-				<Setting icon={iconDiscord} title="Discord ID" value="297295491417505793">
-					<Button variant="tonal" iconType="full" onclick={() => dialogDiscordID = !dialogDiscordID}>
-						<Icon icon={iconInfo} />
-						<DialogInfo title="Discord ID" description="This is the ID of the Discord account you use to login to MRKT." button="OK" open={dialogDiscordID} />
-					</Button>
-				</Setting>
+				<Setting
+					icon={iconDiscord}
+					title="Discord ID"
+					value="297295491417505793"
+					description="This is the ID of the Discord account you use to login to MRKT."
+				/>
 			</ConnectedElements>
 		</div>
 		
@@ -151,15 +153,19 @@
 			
 			<ConnectedElements size="large-increased">
 				{#each socialsArray as social}
-					<Setting icon={social.icon} title={social.title} value={social.value.length ? social.value : "Unset"}>
-						<Button iconType="full">
-							<Icon icon={iconEdit} />
-						</Button>
-					</Setting>
+					<Setting
+						id={social.id}
+						icon={social.icon}
+						title={social.title}
+						value={social.value}
+						type="input"
+						description={social.description}
+						required={false}
+					/>
 				{/each}
 			</ConnectedElements>
 		</div>
-	</div>
+	</form>
 </div>
 
 <style>

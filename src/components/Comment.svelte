@@ -31,7 +31,7 @@
 		background: var(--m3c-surface-container-highest);
 		
 		width: 100%;
-		padding: .5rem .75rem;
+		padding: .5rem 1rem;
 		
 		gap: 5px;
 		

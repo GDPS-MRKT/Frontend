@@ -16,8 +16,11 @@
 	import iconMoreHoriz from "@ktibow/iconset-material-symbols/more-horiz";
 	import iconLink from "@ktibow/iconset-material-symbols/link-rounded";
 	import iconFlag from "@ktibow/iconset-material-symbols/flag-rounded";
+	import iconReply from "@ktibow/iconset-material-symbols/reply-rounded";
 	
 	let { gdpsID } = $props();
+	
+	let showCommentButton = $state(false);
 </script>
 
 <div class="postElements">
@@ -56,10 +59,16 @@
 			<p>GDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurry</p>
 			
 			<div class="postButtons">
-				<TagsGroup>
-					<Tag icon={iconFavorite} label="10" color={gdpsID != undefined ? "primary" : null} onClick={() => console.log(123)} />
-					<Tag icon={iconComment} label="2" onClick={() => console.log(123)} />
-				</TagsGroup>
+				<div class="postButtonsGroup">
+					<TagsGroup>
+						<Tag icon={iconFavorite} label="10" color={gdpsID != undefined ? "primary" : null} onClick={() => console.log(123)} />
+						<Tag icon={iconComment} label="2" onClick={() => console.log(123)} />
+					</TagsGroup>
+					
+					<TagsGroup>
+						<Tag color="text" icon={iconReply} label="Reply" onClick={() => showCommentButton = !showCommentButton} />
+					</TagsGroup>
+				</div>
 				
 				<TagsGroup>
 					<Tag icon={iconVisibility} label="42" />
@@ -71,7 +80,7 @@
 			<Comment />
 		{/if}
 		
-		<div class="inputField connectedElement">
+		<div class={["inputField connectedElement", (!showCommentButton ? " hide" : "")].join(" ")}>
 			<Input label="Write a comment..." />
 		</div>
 	</ConnectedElements>
@@ -194,9 +203,26 @@
 		background: var(--m3c-surface-container-highest);
 		
 		width: 100%;
-		padding: .75rem;
+		max-height: max-content;
+		padding: 0px .75rem;
 		
 		gap: 10px;
+		
+		transition: var(--m3-easing-slow);
+		interpolate-size: allow-keywords;
+		overflow: hidden;
+	}
+	
+	:global .inputField > div {
+		margin: .75rem 0px;
+	}
+	
+	.inputField.hide {
+		max-height: 0px;
+		
+		visibility: hidden;
+		
+		margin-bottom: -3px;
 	}
 	
 	.postElements {
@@ -207,5 +233,11 @@
 		
 		width: 0px;
 		min-width: 100%;
+	}
+	
+	.postButtonsGroup {
+		display: flex;
+		
+		gap: 5px;
 	}
 </style>

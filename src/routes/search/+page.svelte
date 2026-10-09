@@ -121,6 +121,8 @@
 		position: sticky;
 		
 		z-index: 3;
+		
+		backdrop-filter: blur(25px);
 	}
 	
 	.buttonsDiv {
@@ -177,9 +179,9 @@
 	
 	.errorDiv h2 {
 		margin: 0px;
-		font-size: 30px;
+		font-size: 16px;
 		
-		font-weight: 500;
+		font-weight: 400;
 	}
 	
 	h1 {

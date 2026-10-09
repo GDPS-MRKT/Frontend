@@ -4,7 +4,7 @@
 </script>
 
 <div class={["tagsGroup", (wrap != undefined ? wrap : ""), (size != undefined ? size : "")].join(" ")} role="region">
-	<ConnectedElements side="horisontal" size={(size == "small" ? "medium" : "large")}>
+	<ConnectedElements side="horisontal" size={(size == "small" ? "medium" : "large-increased")}>
 		{@render children()}
 	</ConnectedElements>
 </div>

@@ -15,6 +15,7 @@
 	{:else}
 		{description}
 	{/if}
+	
 	{#snippet buttons()}
 		<Button variant="filled">{button}</Button>
 	{/snippet}

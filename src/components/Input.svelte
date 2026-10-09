@@ -90,8 +90,8 @@
 		field-sizing: content;
 	}
 	
-	textarea:focus {
-		outline: none;
+	textarea:focus-visible {
+		animation: none !important;
 	}
 	
 	.inputLogo {
