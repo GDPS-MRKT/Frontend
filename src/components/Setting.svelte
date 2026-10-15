@@ -4,6 +4,7 @@
 	import Image from "./Image.svelte";
 	import DialogInfo from "./dialogs/DialogInfo.svelte";
 	import DialogInput from "./dialogs/DialogInput.svelte";
+	import DialogMarkdown from "./dialogs/DialogMarkdown.svelte";
 	
 	import iconEdit from "@ktibow/iconset-material-symbols/edit-rounded";
 	import iconInfo from "@ktibow/iconset-material-symbols/info-i-rounded";
@@ -14,6 +15,9 @@
 	let dialogOpened = $state(false);
 	let dialogOnUpdate = function(newValue) {
 		settingValue = newValue;
+	}
+	let dialogOnClose = function() {
+		dialogOpened = false;
 	}
 </script>
 
@@ -34,7 +38,7 @@
 	</div>
 	
 	<div class="settingButton">
-		<Button variant={type == "info" ? "tonal" : "filled"} iconType="full" onclick={() => dialogOpened = !dialogOpened}>
+		<Button variant={type == "info" ? "tonal" : "filled"} iconType="full" onclick={() => dialogOpened = true}>
 			<Icon icon={type == "info" ? iconInfo : iconEdit} />
 		</Button>
 		
@@ -44,6 +48,19 @@
 				description={description}
 				button="OK"
 				open={dialogOpened}
+				onClose={dialogOnClose}
+			/>
+		{:else if type == "markdown"}
+			<DialogMarkdown
+				id={id}
+				value={value}
+				title={title}
+				description={description}
+				button="Save"
+				open={dialogOpened}
+				onUpdate={dialogOnUpdate}
+				onClose={dialogOnClose}
+				required={required}
 			/>
 		{:else}
 			<DialogInput
@@ -54,6 +71,7 @@
 				button="Save"
 				open={dialogOpened}
 				onUpdate={dialogOnUpdate}
+				onClose={dialogOnClose}
 				required={required}
 			/>
 		{/if}

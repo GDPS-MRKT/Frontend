@@ -1,10 +1,10 @@
 <script>
 	import { Dialog, Button } from "m3-svelte";
 	
-	let { title, description, button, open = $bindable() } = $props();
+	let { title, description, button, onClose, open = $bindable() } = $props();
 </script>
 
-<Dialog headline={title} bind:open>
+<Dialog headline={title} onclose={onClose} bind:open>
 	{#if typeof description != "string"}
 		{#each description as descriptionPart, index}
 			{#if index}

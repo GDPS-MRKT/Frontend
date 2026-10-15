@@ -17,6 +17,7 @@
 	import iconTikTok from "../../../../lib/assets/logo_tt.svelte";
 	import iconDiscord from "../../../../lib/assets/logo_ds.svelte";
 	import iconTelegram from "../../../../lib/assets/logo_tg.svelte";
+	import iconIDCard from "@ktibow/iconset-material-symbols/id-card-rounded";
 	import iconLink from "@ktibow/iconset-material-symbols/link-rounded";
 	import iconEdit from "@ktibow/iconset-material-symbols/edit-rounded";
 	import iconPerson from "@ktibow/iconset-material-symbols/person-rounded";
@@ -128,15 +129,8 @@
 					icon={iconComment}
 					title="Description"
 					value="GDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurryGDPS description. Very good GDPS. Good GDPS. Good boy. femboyfemboyfurry"
-					type="info"
-					description={["Description of your profile.", "You can use Markdown in descriptions."]}
-				/>
-				
-				<Setting
-					icon={iconEmail}
-					title="Email address"
-					value="m**********8@g***l.com"
-					description={["This is the email of the Discord account you use to login to MRKT.", "It will automatically sync on every login."]}
+					type="markdown"
+					description={[]}
 				/>
 				
 				<Setting
@@ -144,6 +138,20 @@
 					title="Discord ID"
 					value="297295491417505793"
 					description="This is the ID of the Discord account you use to login to MRKT."
+				/>
+				
+				<Setting
+					icon={iconTelegram}
+					title="Telegram ID"
+					value="806013034"
+					description="This is the ID of the Telegram account you use to login to MRKT."
+				/>
+				
+				<Setting
+					icon={iconIDCard}
+					title="MRKT ID"
+					value="1560349555487412275"
+					description="This is the ID of your MRKT account."
 				/>
 			</ConnectedElements>
 		</div>

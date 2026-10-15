@@ -57,7 +57,9 @@
 		elementStick();
 	});
 	
-	const gdpsDescription = `## ХЕШТЕГИ GreenCatsServer \\#ФурриВологды #FurryOfVologda #ФурриТожеЛюди #LetFurriesLive #Mrow #PlayGreenCatsServer #ImFurryGang #OMORI #GREEN #11111111 #AIBot #МальчикЕщёНеВырос #FurrySa1nt #MaidSa1nt #FurryMaid #ЯЛюблюПШП #PHPIsMyLife #HatKidIsMyFav #Maksidem #GCS #GD2.2 #Hashtag #7-8 #КакойЖеЯЕбучий #Эщкере #:3 #FemboyGDPS #FurryGDPS #42 #goglepixel #комачячи #НовостиКаждыйЧас #коленвал #привет #не #НовыйСленг #ПиксельБаттл #ВоСлавуГКС #ОВеликийGreenCatsServer #Топ1!!!!!! #Boykisser #Niko #OneShot #M336 #Cold #ЪЭ #AntiAmogusPolicy #ЁбаныеАмогусы #ФУРЭ #ФУРРИ #ФУРРИ #FURRY #F*RRY #FURRY #FURE #ФУРРЭ #МЯУМЯУУМЯУМЯУМУМЯМУМЯМ #FURRYPLACE #FURRYISGETTINGDISCRIMINATEDONGDPSHUB!!!!!!!!!!!!!!!!! #FURRY #FURRYFURRYFURFYURYFUYFURYFURYUYFUYRFURYFURYFRUYFRU #FURI #FURRI #FURRE #кэбокс #кэбокс #кэбокс #кэбокс #кэбокс #мармеладка #уточка #ФУРРИУТОЧКАРЕАЛЬНО #ФурриФембоиТут #ihatejuchil #UnmuteGrechka #GRECHKA #Outcore #PLEASELUMI #SFWServer #NoP\\*rnAllowed!!! #NoJ\\*b #NoEmpl\\*yment #NoRel\\*tionships #NoSt\\*dying #NoA\\*\\*le #PIXELGANG #GOGLEPIXELGANG #BoykisserXGirlkisser #EMOTIONS #ФурэМилашкэ #АНТИХАЙП #ANTIHYPE #ХАНЗАМАЙ #OBLADAUN #ГИМН #ГимнGreenCatsServerСлушатьВсемИКаждомуИЕщёЛайкПоставитьИНаписатьПоложительныйКомментарийХорошийСлушатьВсемGreenCatsServerаКотикГорничнойБытьНеПротивХорошийГимн`;
+	const gdpsDescription = `# test 
+
+**test**`;
 </script>
 
 <Header title="Sa1ntSosetHui's settings" />
@@ -156,8 +158,8 @@
 						icon={iconComment}
 						title="Description"
 						value={gdpsDescription}
-						type="info"
-						description={["Description of your GDPS.", "You can use Markdown in descriptions."]}
+						type="markdown"
+						description={[]}
 					/>
 					
 					<Setting

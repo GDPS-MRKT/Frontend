@@ -383,14 +383,7 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 	}
 	
 	h1,
-	h2,
-	:global .gdpsDescription h1,
-	:global .gdpsDescription h2,
-	:global .gdpsDescription h3,
-	:global .gdpsDescription h4,
-	:global .gdpsDescription h5,
-	:global .gdpsDescription h6,
-	:global .gdpsDescription p {
+	h2 {
 		color: var(--m3c-on-primary-container);
 		
 		margin: 0px;
@@ -398,193 +391,14 @@ GREENCATSSERVER'А КОТИК СДЕЛАЛ КЛАССНЫЙ ВЕБ-ТРОЛЛИ�
 		gap: 5px;
 	}
 	
-	h1,
-	:global .gdpsDescription h1 {
+	h1 {
 		font-size: 1.6rem;
 		font-weight: 900;
 	}
 	
-	h2,
-	:global .gdpsDescription h2 {
+	h2 {
 		font-size: 1.4rem;
 		font-weight: 800;
-	}
-	
-	:global .gdpsDescription h3 {
-		font-size: 1.2rem;
-		font-weight: 700;
-	}
-	
-	:global .gdpsDescription h4 {
-		font-size: 1.1rem;
-		font-weight: 600;
-	}
-	
-	:global .gdpsDescription h5 {
-		font-size: 1.1rem;
-		font-weight: 500;
-	}
-	
-	:global .gdpsDescription h6 {
-		font-size: 1.1rem;
-		font-weight: 400;
-	}
-	
-	:global .gdpsDescription p {
-		font-size: 1rem;
-		color: var(--m3c-on-secondary-container);
-	}
-	
-	:global .gdpsDescription ul {
-		margin: 0px;
-		padding: 0;
-		padding-left: 2.5rem;
-		
-		color: var(--m3c-on-secondary-container);
-	}
-	
-	:global .gdpsDescription ul:has(a) {
-		font-size: 1.1rem;
-		font-weight: 500;
-		padding: 0 1rem;
-	}
-	
-	:global .gdpsDescription li {
-		margin: .2rem 0px;
-		
-		position: relative;
-	}
-	
-	:global .gdpsDescription li > ul {
-		font-size: 1rem;
-	}
-	
-	:global .gdpsDescription a {
-		text-decoration: none;
-	}
-	
-	:global .gdpsDescription code {
-		display: inline-flex;
-		
-		color: var(--m3c-tertiary);
-		
-		background: var(--m3c-surface-container);
-		border-radius: var(--m3-shape-small);
-		
-		width: max-content;
-		padding: .1rem .2rem;
-		margin: -.1rem -.1rem;
-		font-size: 0.8rem;
-		
-		overflow-wrap: anywhere;
-		
-		font-family: "Google Sans Code Variable";
-	}
-	
-	:global .gdpsDescription h1 code {
-		font-size: 1.4rem;
-	}
-	
-	:global .gdpsDescription h2 code {
-		font-size: 1.2rem;
-	}
-	
-	:global .gdpsDescription h3 code {
-		font-size: 1.1rem;
-	}
-	
-	:global .gdpsDescription blockquote {
-		margin: .25rem;
-		margin-left: 15px;
-		
-		position: relative;
-	}
-	
-	:global .gdpsDescription blockquote::before {
-		content: "";
-		display: block;
-		
-		height: 100%;
-		width: 5px;
-		
-		background: var(--m3c-primary);
-		border-radius: 100px;
-		
-		position: absolute;
-		left: -15px;
-	}
-	
-	:global .gdpsDescription pre {
-		display: contents;
-	}
-	
-	:global .gdpsDescription ol {
-		margin: 0px;
-		color: var(--m3c-on-secondary-container);
-		padding-left: 2.5rem;
-	}
-	
-	:global .gdpsDescription table,
-	:global .gdpsDescription tbody {
-		display: flex;
-		flex-direction: column;
-		gap: 3px;
-	}
-	
-	:global .gdpsDescription tr {
-		display: flex;
-		gap: 3px;
-	}
-	
-	:global .gdpsDescription thead th {
-		display: block;
-		
-		border-radius: var(--m3-shape-small);
-		
-		background: var(--m3c-primary-container);
-		color: var(--m3c-on-primary-container);
-		
-		width: 100%;
-		padding: .5rem;
-	}
-	
-	:global .gdpsDescription tbody td {
-		display: block;
-		
-		border-radius: var(--m3-shape-small);
-		
-		background: var(--m3c-secondary-container);
-		color: var(--m3c-on-secondary-container);
-		
-		width: 100%;
-		padding: .5rem;
-	}
-	
-	:global .gdpsDescription thead th:nth-of-type(1) {
-		border-top-left-radius: var(--m3-shape-large);
-	}
-	
-	:global .gdpsDescription thead th:nth-last-of-type(1) {
-		border-top-right-radius: var(--m3-shape-large);
-	}
-	
-	:global .gdpsDescription tbody tr:nth-last-of-type(1) td:nth-of-type(1) {
-		border-bottom-left-radius: var(--m3-shape-large);
-	}
-	
-	:global .gdpsDescription tbody tr:nth-last-of-type(1) td:nth-last-of-type(1) {
-		border-bottom-right-radius: var(--m3-shape-large);
-	}
-	
-	:global .gdpsDescription object {
-		border-radius: var(--m3-shape-large);
-		
-		max-height: 55vh;
-		max-width: fit-content;
-	}
-	
-	:global .gdpsDescription .descElement {
-		display: ruby;
 	}
 	
 	.gdpsTrailer {
